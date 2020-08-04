@@ -49,6 +49,13 @@ FROM DEPARTMENTS;
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
+SELECT 
+department_id||' '||department_name,
+location_id,
+manager_id
+FROM DEPARTMENTS
+where
+location_id = 1700 ;
 
 /* 10
 Nombre y número de departamento de los empleados.
