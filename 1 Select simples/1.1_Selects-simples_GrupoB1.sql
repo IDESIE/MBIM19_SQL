@@ -83,6 +83,10 @@ department_id DESC;
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
+select first_name, last_name,salary
+from employees
+order by
+employee_id DESC;  
 
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
