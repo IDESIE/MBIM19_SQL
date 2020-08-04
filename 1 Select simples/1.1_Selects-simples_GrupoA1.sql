@@ -47,6 +47,8 @@ de la localidad 1700.
 /* 10
 Nombre y número de departamento de los empleados.
 */
+SELECT FIRST_NAME, DEPARTMENT_ID
+FROM EMPLOYEES;
 
 /* 11
 Nombre y número de departamento de los empleados
