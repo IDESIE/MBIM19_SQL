@@ -3,14 +3,17 @@
 ------------------------------------------------------------------------------------------------
 /* 1
 Describir la tabla employees
+DESC employees;
 */
 
 /* 2
 Describir la tabla departments
+DESC departments;
 */
 
 /* 3
 Describir la tabla locations
+DESC locations;
 */
 
 /* 4
