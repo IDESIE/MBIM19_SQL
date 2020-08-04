@@ -49,10 +49,14 @@ Número de departamento, nombre, y manager_id de los departamentos
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
+select first_name, last_name,department_id,manager_id
+   from employees;
 
 /* 10
 Nombre y número de departamento de los empleados.
 */
+select first_name, last_name,department_id
+   from employees;
 
 /* 11
 Nombre y número de departamento de los empleados
