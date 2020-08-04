@@ -126,7 +126,7 @@ nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
 del mayor a menor y por apellido descendentemente.
 */
-SELECT first_name, last_name, department_id, commission_pct
+SELECT first_name, last_name, department_id
 FROM employees
 WHERE commission_pct is null
 ORDER BY department_id desc, last_name desc;
@@ -138,7 +138,7 @@ y que se cumpla que son del departamento 60 o del 90
 ordenados por número de departamento descendentemente
 y por salario ascendentemente.
 */
-SELECT first_name, last_name, department_id, salary, commission_pct
+SELECT first_name, last_name, department_id, salary
 FROM employees
 WHERE (salary < 6000 OR commission_pct is null) AND department_id in (60,90)
 ORDER BY department_id desc, salary asc;
@@ -148,6 +148,9 @@ Número de empleado, nombre y apellido de los empleados
 desde el apellido que empieza por L hasta los que su apellido
 empieza por la R, incluidos.
 */
+SELECT employee_id, first_name||' '||last_name "NOMBRE Y APELLIDO"
+FROM employees
+WHERE last_name BETWEEN 'L' AND 'R';
 
 /* 23
 Lista de apellidos que su segunda letra sea una 'a'
@@ -161,7 +164,11 @@ Lista de apellidos de empleados donde el apellido empieza por alguna vocal
 y que su salario es menor a 3000 o mayor a 9000
 y debe cumplirse que su departamento es el 30, 60 o 90.
 */
-
+SELECT last_name
+FROM employees
+WHERE (last_name LIKE 'A%' OR last_name LIKE 'E%' OR last_name LIKE 'I%' OR last_name LIKE 'O%' OR last_name LIKE 'U%') 
+AND (salary <3000 OR SALARY >9000) 
+AND department_id in (30,60,90);
 
 /* 25
 Nombre, apellido y el salario de los empleados
@@ -173,14 +180,22 @@ y 'MEDIO' si está entre medias
 /* 26
 Listar los correos concatenados con el texto '@company.com'
 */
+SELECT lower(email)||'@company.com' "email"
+FROM employees;
 
 /* 27
 Lista de nombres de las ciudades que su país es 'US'
 */
+SELECT city
+FROM locations
+WHERE country_id = 'US';
 
 /* 28
 Lista de nombre de las ciudades que su país no es Estados Unidos
 */
+SELECT city
+FROM locations
+WHERE country_id != 'US';
 
 /* 29
 Número y nombre de los departamentos que tienen un jefe.
