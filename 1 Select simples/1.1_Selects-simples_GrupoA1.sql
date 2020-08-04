@@ -102,18 +102,10 @@ nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
 del mayor a menor y por apellido descendentemente.
 */
-SELECT 
-    first_name,
-    last_name,
-    department_id,
-    commission_pct
-FROM
-    employees
-WHERE   
-    commission_pct is null
-ORDER BY
-    department_id desc,
-    last_name desc;
+SELECT first_name, last_name, department_id, commission_pct
+FROM employees
+WHERE commission_pct is null
+ORDER BY department_id desc, last_name desc;
 
 /* 21
 nombre, apellido, número de departamento y salario de los empleados
@@ -122,6 +114,10 @@ y que se cumpla que son del departamento 60 o del 90
 ordenados por número de departamento descendentemente
 y por salario ascendentemente.
 */
+SELECT first_name, last_name, department_id, salary, commission_pct
+FROM employees
+WHERE (salary < 6000 OR commission_pct is null) AND department_id in (60,90)
+ORDER BY department_id desc, salary asc;
 
 /* 22
 Número de empleado, nombre y apellido de los empleados
@@ -134,7 +130,7 @@ Lista de apellidos que su segunda letra sea una 'a'
 */
 SELECT last_name
 FROM employees
-WHERE last_name NOT like '_a%'; 
+WHERE last_name like '_a%'; 
 
 /* 24
 Lista de apellidos de empleados donde el apellido empieza por alguna vocal
