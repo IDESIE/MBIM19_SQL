@@ -66,6 +66,8 @@ department_id asc;
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
+select department_id
+from employees;
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
