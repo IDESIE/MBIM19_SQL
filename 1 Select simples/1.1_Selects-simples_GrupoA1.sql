@@ -31,8 +31,6 @@ FROM countries;
 /* 6
 Ciudad y estado de las localidades
 */
-SELECT CITY, STATE_PROVINCE
-FROM LOCATIONS;
 
 /* 7
 Nombre, apellido, salario de los empleados
@@ -50,6 +48,7 @@ de la localidad 1700.
 /* 10
 Nombre y número de departamento de los empleados.
 */
+
 
 /* 11
 Nombre y número de departamento de los empleados
@@ -116,6 +115,9 @@ empieza por la R, incluidos.
 /* 23
 Lista de apellidos que su segunda letra sea una 'a'
 */
+SELECT last_name
+FROM employees
+WHERE last_name NOT like '_a%'; 
 
 /* 24
 Lista de apellidos de empleados donde el apellido empieza por alguna vocal
