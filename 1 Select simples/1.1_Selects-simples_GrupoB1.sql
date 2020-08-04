@@ -16,22 +16,32 @@ desc locations;
 /* 4
 Datos de la tabla regions
 */
+select *
+from regions;
 
 /* 5
 Datos de la tabla countries
 */
+select *
+from countries;
 
 /* 6
 Ciudad y estado de las localidades
 */
+SELECT city,state_province
+FROM locations; 
 
 /* 7
 Nombre, apellido, salario de los empleados
 */
+select first_name, last_name,salary
+from employees;
 
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
+select department_id, department_name,manager_id
+from departments;
 
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
@@ -41,11 +51,17 @@ de la localidad 1700.
 /* 10
 Nombre y número de departamento de los empleados.
 */
+select first_name, department_id
+from employees;
 
 /* 11
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
+select first_name, department_id
+from employees
+order by
+department_id asc; 
 
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
