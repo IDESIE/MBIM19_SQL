@@ -67,12 +67,18 @@ department_id asc;
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
 select department_id
-from employees;
+from departments
+order by
+department_id asc; 
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
+select department_id
+from departments
+order by
+department_id DESC; 
 
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
