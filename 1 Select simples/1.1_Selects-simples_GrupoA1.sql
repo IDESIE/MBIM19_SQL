@@ -31,7 +31,8 @@ FROM countries;
 /* 6
 Ciudad y estado de las localidades
 */
-
+SELECT CITY, STATE_PROVINCE
+FROM LOCATIONS;
 /* 7
 Nombre, apellido, salario de los empleados
 */
