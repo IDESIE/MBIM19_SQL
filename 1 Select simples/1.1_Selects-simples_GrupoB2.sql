@@ -104,9 +104,7 @@ department_id desc;
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
-select department_id
-from employees;
-department_id=30
+
 
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
