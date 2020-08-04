@@ -34,15 +34,24 @@ from countries;
 /* 6
 Ciudad y estado de las localidades
 */
-
+select city,state_province
+from locations;
+desc locations;
 /* 7
 Nombre, apellido, salario de los empleados
 */
-
+select
+    first_name,
+    last_name,
+    salary
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
-
+Select 
+    department_id, 
+    department_name,
+    manager_id
+From departments;
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
@@ -102,7 +111,6 @@ department_id desc;
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
-
 select department_id
 from employees;
 department_id=30
