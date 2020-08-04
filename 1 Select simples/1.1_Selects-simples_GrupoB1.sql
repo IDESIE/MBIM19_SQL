@@ -102,7 +102,7 @@ códigos de los distintos trabajos que existen en el departamento 30
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
 */
-
+jiji
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
