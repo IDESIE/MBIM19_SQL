@@ -97,6 +97,18 @@ nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
 del mayor a menor y por apellido descendentemente.
 */
+SELECT 
+    first_name,
+    last_name,
+    department_id,
+    commission_pct
+FROM
+    employees
+WHERE   
+    commission_pct is null
+ORDER BY
+    department_id desc,
+    last_name desc;
 
 /* 21
 nombre, apellido, número de departamento y salario de los empleados
@@ -124,6 +136,7 @@ Lista de apellidos de empleados donde el apellido empieza por alguna vocal
 y que su salario es menor a 3000 o mayor a 9000
 y debe cumplirse que su departamento es el 30, 60 o 90.
 */
+
 
 /* 25
 Nombre, apellido y el salario de los empleados
