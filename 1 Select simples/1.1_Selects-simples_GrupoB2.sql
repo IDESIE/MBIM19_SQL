@@ -4,23 +4,33 @@
 /* 1
 Describir la tabla employees
 */
-
+select *
+from department;
+desc employees;
 /* 2
 Describir la tabla departments
 */
+select *
+from department;
+desc departments;
 
 /* 3
 Describir la tabla locations
 */
+select *
+from locations;
+desc locations;
 
 /* 4
 Datos de la tabla regions
 */
-
+select *
+from regions;
 /* 5
 Datos de la tabla countries
 */
-
+select *
+from countries;
 /* 6
 Ciudad y estado de las localidades
 */
@@ -37,42 +47,65 @@ Número de departamento, nombre, y manager_id de los departamentos
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
+select first_name, last_name,department_id,manager_id
+   from employees;
+
+
 
 /* 10
 Nombre y número de departamento de los empleados.
 */
+select first_name, last_name,department_id
+   from employees;
+
 
 /* 11
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
 
+select first_name, last_name,department_id
+from employees
+order by department_id asc;
+
+
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
+select first_name, last_name, department_id;
+
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
 
+
+
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
+select first_name, last_name,department_id,salario
+from employees
+order by department_id desc;
 
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
 */
+select first_name, last_name,salario
+from employees
+order by 
+last_name asc and
+department_id desc;
+
 
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
-select distinct
-    job_id
 
-from employees
-
-where department_id = 30;
+select department_id
+from employees;
+department_id=30
 
 
 /* 17
@@ -91,6 +124,8 @@ order by
 
 
 
+
+
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
@@ -103,6 +138,8 @@ from employees
 where
     department_id in (30) and
     salary <= 3000;
+
+
 
 /* 19
 Nombre, apellido y correo de los empleados del departamento 30
