@@ -99,12 +99,18 @@ salary desc;
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
-
+select DISTINCT job_id
+from employees
+where department_id = 30;
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
 */
-jiji
+select distinct job_id
+from employees
+where department_id=60
+order by
+job_id desc;
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
