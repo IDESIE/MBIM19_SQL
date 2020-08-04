@@ -40,7 +40,10 @@ Número de departamento, nombre, y manager_id de los departamentos
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
-
+select department_ID, department_name, manager_ID, location_ID
+from departments
+where location_ID = 1700 and
+manager_ID != 0;
 /* 10
 Nombre y número de departamento de los empleados.
 */
