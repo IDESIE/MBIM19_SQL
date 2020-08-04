@@ -12,7 +12,7 @@ DESC DEPARTMENTS;
 /* 3
 Describir la tabla locations
 */
-
+desc locations;
 /* 4
 Datos de la tabla regions
 */
