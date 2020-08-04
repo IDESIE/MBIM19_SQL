@@ -46,7 +46,7 @@ de la localidad 1700.
 select department_ID, department_name, manager_ID, location_ID
 from departments
 where location_ID = 1700 and
-manager_ID != 0;
+manager_ID is not null;
 /* 10
 Nombre y número de departamento de los empleados.
 */
@@ -115,7 +115,10 @@ nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
 del mayor a menor y por apellido descendentemente.
 */
-
+select first_name, last_name, department_id
+from employees
+where
+     commission_pct is null;
 /* 21
 nombre, apellido, número de departamento y salario de los empleados
 que no tengan comisión o su salario sea menor a 6000 
