@@ -3,41 +3,48 @@
 ------------------------------------------------------------------------------------------------
 /* 1
 Describir la tabla employees
-DESC employees;
 */
+DESC employees;
 
 /* 2
 Describir la tabla departments
-DESC departments;
 */
+DESC departments;
 
 /* 3
 Describir la tabla locations
-DESC locations;
 */
+DESC locations;
 
 /* 4
 Datos de la tabla regions
+*/
 SELECT *
 FROM REGIONS;
-*/
 
 /* 5
 Datos de la tabla countries
 */
+SELECT *
+FROM countries;
 
 
 /* 6
 Ciudad y estado de las localidades
 */
+SELECT city,state_province
+FROM locations; 
 
 /* 7
 Nombre, apellido, salario de los empleados
 */
-
+SELECT FIRST_NAME, LAST_NAME,SALARY
+FROM EMPLOYEES;
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
+SELECT department_id, department_name,manager_id
+FROM DEPARTMENTS;
 
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
@@ -49,6 +56,7 @@ Nombre y número de departamento de los empleados.
 */
 SELECT FIRST_NAME, DEPARTMENT_ID
 FROM EMPLOYEES;
+
 
 /* 11
 Nombre y número de departamento de los empleados
@@ -118,6 +126,18 @@ nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
 del mayor a menor y por apellido descendentemente.
 */
+SELECT 
+    first_name,
+    last_name,
+    department_id,
+    commission_pct
+FROM
+    employees
+WHERE   
+    commission_pct is null
+ORDER BY
+    department_id desc,
+    last_name desc;
 
 /* 21
 nombre, apellido, número de departamento y salario de los empleados
@@ -136,12 +156,16 @@ empieza por la R, incluidos.
 /* 23
 Lista de apellidos que su segunda letra sea una 'a'
 */
+SELECT last_name
+FROM employees
+WHERE last_name NOT like '_a%'; 
 
 /* 24
 Lista de apellidos de empleados donde el apellido empieza por alguna vocal
 y que su salario es menor a 3000 o mayor a 9000
 y debe cumplirse que su departamento es el 30, 60 o 90.
 */
+
 
 /* 25
 Nombre, apellido y el salario de los empleados
