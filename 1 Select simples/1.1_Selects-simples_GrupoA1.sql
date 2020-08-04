@@ -22,6 +22,8 @@ Datos de la tabla regions
 
 /* 5
 Datos de la tabla countries
+SELECT *
+FROM countries;
 */
 
 /* 6
