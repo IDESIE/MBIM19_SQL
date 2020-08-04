@@ -162,7 +162,19 @@ nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
 del mayor a menor y por apellido descendentemente.
 */
+select
+    first_name,
+    last_name,
+    department_id
 
+from employees
+
+where 
+    commission_pct is null
+
+order by
+    department_id desc, 
+    last_name desc;
 
 
 /* 21
@@ -172,6 +184,23 @@ y que se cumpla que son del departamento 60 o del 90
 ordenados por número de departamento descendentemente
 y por salario ascendentemente.
 */
+select
+    first_name,
+    last_name,
+    department_id,
+    salary
+
+from employees
+
+where 
+    commission_pct is null or 
+    salary <= 6000 and
+    department_id = 60 or
+    department_id = 90
+
+order by
+    department_id desc, 
+    salary asc;
 
 
 
@@ -183,9 +212,11 @@ empieza por la R, incluidos.
 
 
 
+
 /* 23
 Lista de apellidos que su segunda letra sea una 'a'
 */
+
 
 
 
