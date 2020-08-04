@@ -3,30 +3,30 @@
 ------------------------------------------------------------------------------------------------
 /* 1
 Describir la tabla employees
-DESC employees;
 */
+DESC employees;
 
 /* 2
 Describir la tabla departments
-DESC departments;
 */
+DESC departments;
 
 /* 3
 Describir la tabla locations
-DESC locations;
 */
+DESC locations;
 
 /* 4
 Datos de la tabla regions
+*/
 SELECT *
 FROM REGIONS;
-*/
 
 /* 5
 Datos de la tabla countries
+*/
 SELECT *
 FROM countries;
-*/
 
 /* 6
 Ciudad y estado de las localidades
