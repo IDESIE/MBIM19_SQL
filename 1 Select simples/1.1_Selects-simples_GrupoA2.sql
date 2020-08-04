@@ -36,6 +36,8 @@ from employees;
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
+select department_id,department_name,manager_id 
+from departments;
 
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
