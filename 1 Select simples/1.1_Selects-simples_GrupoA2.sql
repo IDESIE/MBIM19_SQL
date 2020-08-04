@@ -8,7 +8,7 @@ desc employees;
 /* 2
 Describir la tabla departments
 */
-desc departments;
+DESC DEPARTMENTS;
 /* 3
 Describir la tabla locations
 */
@@ -16,92 +16,79 @@ desc locations;
 /* 4
 Datos de la tabla regions
 */
-select *
+SELECT *
 from regions;
-
 /* 5
 Datos de la tabla countries
 */
 select *
 from countries;
-
 /* 6
 Ciudad y estado de las localidades
 */
-SELECT city,state_province
-FROM locations; 
-
+select city, state_province
+from locations;
 /* 7
 Nombre, apellido, salario de los empleados
 */
-select first_name, last_name,salary
+select first_name,last_name,salary
 from employees;
-
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
-select department_id, department_name,manager_id
+select department_id,department_name,manager_id 
 from departments;
 
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
-
+select department_ID, department_name, manager_ID, location_ID
+from departments
+where location_ID = 1700 and
+manager_ID != 0;
 /* 10
 Nombre y número de departamento de los empleados.
 */
-select first_name, department_id
-from employees;
 
 /* 11
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
-select first_name, department_id
-from employees
-order by
-department_id asc; 
 
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
-select department_id
-from employees;
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
-select department_id
-from employees
-order by
-department_id desc;
+
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
-select first_name, last_name, salary
-from employees
-order by 
-department_id desc;
 
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
 */
-select first_name, last_name, salary
-from employees
-order by 
-last_name asc,
-salary desc;
+
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
-
+select DISTINCT job_id
+from employees
+where department_id = 30;
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
 */
-jiji
+select distinct job_id
+from employees
+where department_id=60
+order by
+job_id desc;
+
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
