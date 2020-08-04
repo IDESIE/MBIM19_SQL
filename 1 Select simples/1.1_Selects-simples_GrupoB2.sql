@@ -120,27 +120,53 @@ pero como salario una etiqueta que indique
 'BAJO' si es menor a 4280, 'ALTO' si es mayor a 15230
 y 'MEDIO' si está entre medias
 */
-
+select first_name, last_name,
+    case
+        when salary > 15230 then 'ALTO'
+        when salary between 4280 and 15230 then 'MEDIO'
+        else
+            'BAJO'
+    end salary
+from employees;
 /* 26
 Listar los correos concatenados con el texto '@company.com'
 */
-
+select 
+    email ||'@company.com' EMAIL
+ 
+from EMPLOYEES
 /* 27
 Lista de nombres de las ciudades que su país es 'US'
 */
-
+select city
+from LOCATIONS
+where
+    country_id = 'US'
 /* 28
 Lista de nombre de las ciudades que su país no es Estados Unidos
 */
-
+select city
+from LOCATIONS
+where
+    not country_id = 'Estados Unidos'
 /* 29
 Número y nombre de los departamentos que tienen un jefe.
 */
+select 
+    department_id, department_name
 
+from departments
+where
+    manager_id is null;
 /* 30
 Número y nombre de los departamentos que no tienen jefe.
 */
+select 
+    department_id, department_name
 
+from departments
+where
+    manager_id is not null;
 /* 31
 Nombre de las columnas de la tabla de empleados 'Employees'
 que no tienen un guión bajo en el nombre.
