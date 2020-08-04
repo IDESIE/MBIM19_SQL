@@ -36,6 +36,8 @@ from employees;
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
+select department_id,department_name,manager_id 
+from departments;
 
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
@@ -48,7 +50,8 @@ manager_ID != 0;
 /* 10
 Nombre y número de departamento de los empleados.
 */
-
+select first_name,department_id
+from employees;
 /* 11
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
@@ -84,6 +87,11 @@ where department_id = 30;
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
 */
+select distinct job_id
+from employees
+where department_id=60
+order by
+job_id desc;
 
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
