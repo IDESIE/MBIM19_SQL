@@ -21,7 +21,8 @@ from regions;
 /* 5
 Datos de la tabla countries
 */
-
+select *
+from countries;
 /* 6
 Ciudad y estado de las localidades
 */
