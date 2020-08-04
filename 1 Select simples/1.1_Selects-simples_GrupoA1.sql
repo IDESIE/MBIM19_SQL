@@ -37,10 +37,13 @@ FROM LOCATIONS;
 /* 7
 Nombre, apellido, salario de los empleados
 */
-
+SELECT FIRST_NAME, LAST_NAME,SALARY
+FROM EMPLOYEES;
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
+SELECT department_id, department_name,manager_id
+FROM DEPARTMENTS;
 
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
