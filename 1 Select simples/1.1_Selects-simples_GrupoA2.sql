@@ -4,11 +4,11 @@
 /* 1
 Describir la tabla employees
 */
-
+desc employees;
 /* 2
 Describir la tabla departments
 */
-
+vds
 /* 3
 Describir la tabla locations
 */
