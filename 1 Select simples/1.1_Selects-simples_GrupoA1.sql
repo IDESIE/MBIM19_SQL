@@ -18,6 +18,8 @@ DESC locations;
 
 /* 4
 Datos de la tabla regions
+SELECT *
+FROM REGIONS;
 */
 
 /* 5
