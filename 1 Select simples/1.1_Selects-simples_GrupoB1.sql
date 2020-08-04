@@ -8,7 +8,7 @@ desc employees;
 /* 2
 Describir la tabla departments
 */
-
+hioasfhioasfai
 /* 3
 Describir la tabla locations
 */

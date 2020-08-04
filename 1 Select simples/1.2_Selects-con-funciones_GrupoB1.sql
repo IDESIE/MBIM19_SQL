@@ -12,25 +12,25 @@ la palabra "de", el mes en minúscula en palabras, la palabra "de", el año en c
 finalizando con un punto. Luego la hora en formato 24h con minutos y segundos.
 Y de etiqueta del campo "Fecha actual".
 */
-
+desc employees;
 /* 2
 Día en palabras en el cual naciste
 */
-
+desc employees;
 /* 3
 La suma de salarios, cuál es el mínimo, el máximo y la media de salario
 */
-
+desc employees;
 /* 4
 Cuántos empleados hay, cuántos tienen salario y cuántos tienen comisión.
 */
-
+desc employees;
 /* 5
 Por un lado la media entre la media de salarios y el mínimo salario
 Y por otro lado, la media entre la media de salarios y el máximo salario
 Solo la parte entera, sin decimales ni redondeo.
 */
-
+desc employees;
 /* 6
 Listar el número de departamento y el máximo salario en cada uno de ellos.
 */
