@@ -54,23 +54,44 @@ FROM EMPLOYEES;
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
+SELECT FIRST_NAME, DEPARTMENT_ID
+FROM EMPLOYEES
+ORDER BY
+DEPARTMENT_ID ASC; 
 
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
+SELECT DEPARTMENT_ID
+FROM EMPLOYEES;
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
+SELECT DEPARTMENT_ID
+FROM EMPLOYEES
+ORDER BY 
+DEPARTMENT_ID DESC;
+
 
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES
+ORDER BY 
+DEPARTMENT_ID DESC;
 
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
 */
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES
+ORDER BY 
+LAST_NAME ASC,
+SALARY DESC;
+
 
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
