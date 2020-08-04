@@ -67,28 +67,66 @@ Nombre, apellido y salario ordenado por apellido ascendentemente y salario desce
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
+select distinct
+    job_id
+
+from employees
+
+where department_id = 30;
+
 
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
 */
+select distinct
+    job_id
+
+from employees
+
+where department_id = 60
+
+order by
+    job_id desc;
+
+
 
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 */
+select 
+    first_name, last_name, email
+    
+from employees
+
+where
+    department_id in (30) and
+    salary <= 3000;
 
 /* 19
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 o que sean del departamento 90
 */
+select 
+    first_name, last_name, email
+    
+from employees
+
+where
+    department_id in (30) and
+    salary <= 3000 or
+    department_id in(90);
+
 
 /* 20
 nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
 del mayor a menor y por apellido descendentemente.
 */
+
+
 
 /* 21
 nombre, apellido, número de departamento y salario de los empleados
@@ -98,15 +136,21 @@ ordenados por número de departamento descendentemente
 y por salario ascendentemente.
 */
 
+
+
 /* 22
 Número de empleado, nombre y apellido de los empleados
 desde el apellido que empieza por L hasta los que su apellido
 empieza por la R, incluidos.
 */
 
+
+
 /* 23
 Lista de apellidos que su segunda letra sea una 'a'
 */
+
+
 
 /* 24
 Lista de apellidos de empleados donde el apellido empieza por alguna vocal
