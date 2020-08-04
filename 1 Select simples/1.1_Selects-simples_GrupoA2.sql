@@ -68,6 +68,10 @@ from departments;
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
+select DISTINCT department_ID
+from departments
+order by
+department_ID desc;
 
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
