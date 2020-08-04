@@ -53,11 +53,14 @@ Nombre y número de departamento de los empleados.
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
-
+select department_ID, department_name
+from departments
+order by department_ID;
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
-
+select DISTINCT department_ID
+from departments;
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
