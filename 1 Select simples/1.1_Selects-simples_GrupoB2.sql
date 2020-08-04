@@ -61,9 +61,13 @@ Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
 
+select first_name, last_name,department_id
+from employees
+order by department_id asc;
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
+select first_name, last_name, department_id;
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
@@ -73,6 +77,9 @@ ordenados descendentemente.
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
+select first_name, last_name,department_id,salario
+from employees
+order by department_id desc;
 
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
