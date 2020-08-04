@@ -8,7 +8,7 @@ desc employees;
 /* 2
 Describir la tabla departments
 */
-
+DESC DEPARTMENTS;
 /* 3
 Describir la tabla locations
 */
@@ -16,7 +16,8 @@ Describir la tabla locations
 /* 4
 Datos de la tabla regions
 */
-
+SELECT *
+from regions;
 /* 5
 Datos de la tabla countries
 */
