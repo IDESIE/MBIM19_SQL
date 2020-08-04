@@ -104,6 +104,12 @@ SALARY DESC;
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
+select distinct
+department_id,
+job_id
+from employees
+where
+department_id=30;
 
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
