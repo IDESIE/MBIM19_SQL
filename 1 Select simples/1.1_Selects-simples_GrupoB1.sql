@@ -91,11 +91,12 @@ department_id desc;
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
 */
-select first_name, last_name, salary
+select first_name, last_name,salary
 from employees
-order by 
-last_name asc,
-salary desc;
+order by
+last_name,
+salary DESC;   
+
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
