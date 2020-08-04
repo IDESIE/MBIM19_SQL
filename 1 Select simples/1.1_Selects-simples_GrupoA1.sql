@@ -105,7 +105,6 @@ SALARY DESC;
 códigos de los distintos trabajos que existen en el departamento 30
 */
 select distinct
-department_id,
 job_id
 from employees
 where
@@ -115,6 +114,13 @@ department_id=30;
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
 */
+select distinct
+job_id
+from employees
+where
+department_id=60
+order by
+job_id desc;
 
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
