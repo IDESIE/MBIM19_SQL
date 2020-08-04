@@ -50,6 +50,13 @@ FROM DEPARTMENTS;
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
+SELECT 
+department_id||' '||department_name,
+location_id,
+manager_id
+FROM DEPARTMENTS
+where
+location_id = 1700 ;
 
 /* 10
 Nombre y número de departamento de los empleados.
@@ -104,23 +111,51 @@ SALARY DESC;
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
+select distinct
+job_id
+from employees
+where
+department_id=30;
 
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
 */
+select distinct
+job_id
+from employees
+where
+department_id=60
+order by
+job_id desc;
 
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 */
+select distinct
+first_name,
+last_name,
+email
+from employees
+where
+department_id=30 and
+salary<=3000;
 
 /* 19
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 o que sean del departamento 90
 */
-
+select distinct
+first_name,
+last_name,
+email
+from employees
+where
+department_id=30 and
+salary<=3000 or
+department_id=90;
 /* 20
 nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
@@ -200,10 +235,24 @@ WHERE country_id != 'US';
 /* 29
 Número y nombre de los departamentos que tienen un jefe.
 */
+select distinct
+department_name,
+department_id,
+manager_id
+from departments
+where
+manager_id is not null;
 
 /* 30
 Número y nombre de los departamentos que no tienen jefe.
 */
+select distinct
+department_name,
+department_id,
+manager_id
+from departments
+where
+manager_id is null;
 
 /* 31
 Nombre de las columnas de la tabla de empleados 'Employees'
