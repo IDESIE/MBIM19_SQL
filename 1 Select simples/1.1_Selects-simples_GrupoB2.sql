@@ -4,14 +4,17 @@
 /* 1
 Describir la tabla employees
 */
+desc employees;
 
 /* 2
 Describir la tabla departments
 */
+desc departments;
 
 /* 3
 Describir la tabla locations
 */
+desc locations;
 
 /* 4
 Datos de la tabla regions
