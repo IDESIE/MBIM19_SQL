@@ -31,7 +31,8 @@ from locations;
 /* 7
 Nombre, apellido, salario de los empleados
 */
-
+select first_name,last_name,salary
+from employees;
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
