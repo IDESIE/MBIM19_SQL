@@ -25,7 +25,8 @@ Datos de la tabla countries
 /* 6
 Ciudad y estado de las localidades
 */
-
+select city, state_province
+from locations;
 /* 7
 Nombre, apellido, salario de los empleados
 */
