@@ -71,7 +71,9 @@ Nombre, apellido y salario ordenado por apellido ascendentemente y salario desce
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
-
+select DISTINCT job_id
+from employees
+where department_id = 30;
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
