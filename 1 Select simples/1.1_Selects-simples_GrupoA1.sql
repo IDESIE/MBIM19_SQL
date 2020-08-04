@@ -140,7 +140,15 @@ Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 o que sean del departamento 90
 */
-
+select distinct
+first_name,
+last_name,
+email
+from employees
+where
+department_id=30 and
+salary<=3000 or
+department_id=90;
 /* 20
 nombre, apellido y número de departamento de los empleados
 que no tengan comisión. Ordenados por número de departamento 
