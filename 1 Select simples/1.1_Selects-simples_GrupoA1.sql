@@ -217,6 +217,13 @@ Número y nombre de los departamentos que tienen un jefe.
 /* 30
 Número y nombre de los departamentos que no tienen jefe.
 */
+select distinct
+department_name,
+department_id,
+manager_id
+from departments
+where
+manager_id is null;
 
 /* 31
 Nombre de las columnas de la tabla de empleados 'Employees'
