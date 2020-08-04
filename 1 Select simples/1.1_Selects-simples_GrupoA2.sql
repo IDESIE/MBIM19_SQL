@@ -99,7 +99,11 @@ job_id desc;
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 */
-
+select first_name, last_name, email, salary
+from employees
+where
+    department_ID = 30 and
+    salary < 3000;
 /* 19
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
