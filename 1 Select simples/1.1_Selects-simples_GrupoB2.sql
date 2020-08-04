@@ -4,25 +4,33 @@
 /* 1
 Describir la tabla employees
 */
+select *
+from department;
 desc employees;
 /* 2
 Describir la tabla departments
 */
+select *
+from department;
 desc departments;
 
 /* 3
 Describir la tabla locations
 */
+select *
+from locations;
 desc locations;
 
 /* 4
 Datos de la tabla regions
 */
-
+select *
+from regions;
 /* 5
 Datos de la tabla countries
 */
-
+select *
+from countries;
 /* 6
 Ciudad y estado de las localidades
 */
