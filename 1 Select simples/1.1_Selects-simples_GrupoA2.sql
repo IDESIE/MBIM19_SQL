@@ -50,7 +50,8 @@ manager_ID != 0;
 /* 10
 Nombre y número de departamento de los empleados.
 */
-
+select first_name,department_id
+from employees;
 /* 11
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
