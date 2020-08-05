@@ -270,6 +270,6 @@ que no tienen un guión bajo en el nombre.
 */
 SELECT COLUMN_NAME
 FROM USER_TAB_COLUMNS
-WHERE TABLE_NAME = 'EMPLOYEES' AND COLUMN_NAME NOT LIKE '%_%';
+WHERE TABLE_NAME = 'EMPLOYEES' AND COLUMN_NAME NOT LIKE '%@_%' escape '@';
 --
 ------------------------------------------------------------------------------------------------
