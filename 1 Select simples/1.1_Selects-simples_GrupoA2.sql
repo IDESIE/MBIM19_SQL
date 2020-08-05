@@ -121,7 +121,9 @@ del mayor a menor y por apellido descendentemente.
 select first_name, last_name, department_id
 from employees
 where
-     commission_pct is null;
+     commission_pct is null
+order by 
+    department_id asc, last_name desc;
 /* 21
 nombre, apellido, número de departamento y salario de los empleados
 que no tengan comisión o su salario sea menor a 6000 
