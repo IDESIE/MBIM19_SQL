@@ -77,14 +77,14 @@ DEPARTMENT_ID ASC;
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
-SELECT DEPARTMENT_ID
+SELECT DISTINCT DEPARTMENT_ID
 FROM EMPLOYEES;
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
-SELECT DEPARTMENT_ID
+SELECT DISTINCT DEPARTMENT_ID
 FROM EMPLOYEES
 ORDER BY 
 DEPARTMENT_ID DESC;
