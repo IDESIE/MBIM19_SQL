@@ -291,6 +291,11 @@ where
 Nombre de las columnas de la tabla de empleados 'Employees'
 que no tienen un guión bajo en el nombre.
 */
+SELECT table_name, column_name
 
+from user_tab_columns
+where
+    table_name = 'EMPLOYEES' and
+    column_name  not like '%@_%' escape '@'
 --
 ------------------------------------------------------------------------------------------------
