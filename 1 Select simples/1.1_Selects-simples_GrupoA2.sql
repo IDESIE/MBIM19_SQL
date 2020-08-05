@@ -43,10 +43,9 @@ from departments;
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
-select department_ID, department_name, manager_ID, location_ID
+select department_ID, department_name, manager_ID
 from departments
-where location_ID = 1700 and
-manager_ID is not null;
+where location_ID = 1700;
 /* 10
 Nombre y número de departamento de los empleados.
 */
