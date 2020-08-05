@@ -70,7 +70,8 @@ department_id asc;
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
 select department_id
-from employees;
+from employees
+group by department_id;
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
@@ -78,6 +79,7 @@ ordenados descendentemente.
 */
 select department_id
 from employees
+group by department_id
 order by
 department_id desc;
 /* 14
