@@ -268,16 +268,16 @@ Lista de nombre de las ciudades que su país no es Estados Unidos
 select city
 from LOCATIONS
 where
-    not country_id = 'Estados Unidos'
+    not country_id = 'US'
 /* 29
 Número y nombre de los departamentos que tienen un jefe.
 */
 select 
-    department_id, department_name
+    department_id, department_name, manager_id
 
 from departments
 where
-    manager_id is null;
+     manager_id is not null;
 /* 30
 Número y nombre de los departamentos que no tienen jefe.
 */
@@ -286,7 +286,7 @@ select
 
 from departments
 where
-    manager_id is not null;
+    manager_id is null;
 /* 31
 Nombre de las columnas de la tabla de empleados 'Employees'
 que no tienen un guión bajo en el nombre.
