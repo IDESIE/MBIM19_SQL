@@ -3,10 +3,7 @@
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
-Select
-	Max(salary)
-From employees;
-Select last_name
+Select last_name, first_name
 From employees
 Where salary = (select
 			Max(salary)
@@ -14,6 +11,14 @@ Where salary = (select
 
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
+Select
+first_name,
+last_name,
+	salary
+From employees
+where salary>=(select
+Avg(salary)
+from employees);
 
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
