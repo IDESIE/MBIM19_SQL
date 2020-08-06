@@ -48,6 +48,8 @@ where department_id = (select department_id from departments where department_na
 -- Nombre, apellido, salario, nombre del departamento y ciudad
 -- del empleado que gana más y el que menos
 
+
+
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
