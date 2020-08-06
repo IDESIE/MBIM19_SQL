@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------------
--- SELECT con suncolsultas y JOINS
+-- SELECT con subconsultas y JOINS
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
@@ -126,7 +126,9 @@ count(*) >1;
 -- Listar nombre, apellido y un literal que indique el salario.
 -- 'BAJO' si el salario es menor a la mediabaja (media entre el salario mínimo y la media de salarios)
 -- 'ALTO' si el salario es mayor a la mediaalta (media entre el salario máximo y la media de salarios)
--- 'MEDIO' si el salario está entre la mediabaja y medialata.
+-- 'MEDIO' si el salario está entre la mediabaja y mediaalta
+
+
 
 -- 12
 -- Número de empleados dados de alta por día
