@@ -37,7 +37,15 @@ where  departments.department_name = 'Marketing';
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
 -- del empleado que gana más y el que menos
-
+Select first_name, last_name, salary, department_name
+From employees
+join departments on employees.department_id = 
+departments.department_id
+Where salary = (select
+			Max(salary)
+			From employees)or salary = (select
+			Min(salary)
+			From employees);
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
