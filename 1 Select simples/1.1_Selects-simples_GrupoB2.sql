@@ -43,7 +43,8 @@ Nombre, apellido, salario de los empleados
 select
     first_name,
     last_name,
-    salary
+    salary;
+
 /* 8
 Número de departamento, nombre, y manager_id de los departamentos
 */
@@ -51,21 +52,31 @@ Select
     department_id, 
     department_name,
     manager_id
-From departments;
+From departments
+;
+
 /* 9
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
-select first_name, last_name,department_id,manager_id
-   from employees;
-
-
+select 
+    department_name,
+    department_id,
+    manager_id,
+    locations
+from departments
+Where locations = 1700
+;
 
 /* 10
 Nombre y número de departamento de los empleados.
 */
-select first_name, last_name,department_id
-   from employees;
+select 
+    first_name, 
+    last_name,
+    department_id, 
+from employees
+;
 
 
 /* 11
@@ -75,13 +86,17 @@ ordenados por número de departamento ascendentemente.
 
 select first_name, last_name,department_id
 from employees
-order by department_id asc;
+order by department_id asc
+;
 
 
 /* 12
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
-select first_name, last_name, department_id;
+
+select DISTINCT department_ID
+from departments
+;
 
 
 /* 13
@@ -89,31 +104,39 @@ Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
 
+select DISTINCT department_ID
+from departments
+order by department_id desc
+;
 
 
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
-select first_name, last_name,department_id,salario
+
+select first_name, last_name,salary
 from employees
-order by department_id desc;
+order by department_id desc
+;
 
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
 */
-select first_name, last_name,salario
+select first_name, last_name,salary
 from employees
 order by 
 last_name asc and
-department_id desc;
+department_id desc
+;
 
 
 /* 16
 códigos de los distintos trabajos que existen en el departamento 30
 */
-select department_id
-from employees;
+select distinct department_id
+from employees
 department_id=30
+;
 
 
 /* 17
