@@ -33,7 +33,13 @@ d.department_name='Marketing';
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
 -- del empleado que gana más y el que menos
-
+select first_name, last_name, salary, d.department_name, d.location_id
+from employees e join departments d
+       on e.department_id 
+       = d.department_id
+where salary in ((select max(salary) from employees), 
+    (select min(salary) from employees))
+order by salary desc;
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
@@ -49,17 +55,13 @@ d.department_name='Marketing';
 
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
-select
-    last_name, salary
+select last_name, salary
 from
     (select
-    rownum orden,
-    last_name,
-    salary
+    rownum orden, last_name, salary
 from employees
 order by salary desc)
-where 
-    rownum < 4;
+where rownum < 4;
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
