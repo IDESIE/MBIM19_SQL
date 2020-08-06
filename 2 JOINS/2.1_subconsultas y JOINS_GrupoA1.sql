@@ -12,6 +12,14 @@
 
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
+select 
+    first_name,
+    last_name
+from
+    employees
+    join departments
+        on employees.department_id = departments.department_id
+where  departments.department_name = 'Marketing';
 
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
