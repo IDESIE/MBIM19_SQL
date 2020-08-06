@@ -3,6 +3,14 @@
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
+Select
+	Max(salary)
+From employees;
+Select last_name
+From employees
+Where salary = (select
+			Max(salary)
+			From employees);
 
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
