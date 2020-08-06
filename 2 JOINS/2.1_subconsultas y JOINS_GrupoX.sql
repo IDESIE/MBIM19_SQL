@@ -49,7 +49,17 @@ d.department_name='Marketing';
 
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
-
+select
+    last_name, salary
+from
+    (select
+    rownum orden,
+    last_name,
+    salary
+from employees
+order by salary desc)
+where 
+    rownum < 4;
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
