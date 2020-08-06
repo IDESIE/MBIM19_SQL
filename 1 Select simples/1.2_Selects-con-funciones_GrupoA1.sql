@@ -20,6 +20,11 @@ Día en palabras en el cual naciste
 /* 3
 La suma de salarios, cuál es el mínimo, el máximo y la media de salario
 */
+select sum(salary),
+    min(salary),
+    max(salary),
+    avg(salary)
+from employees;
 
 /* 4
 Cuántos empleados hay, cuántos tienen salario y cuántos tienen comisión.
