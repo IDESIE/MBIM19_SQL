@@ -3,10 +3,7 @@
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
-Select
-	Max(salary)
-From employees;
-Select last_name
+Select last_name, first_name
 From employees
 Where salary = (select
 			Max(salary)
