@@ -16,6 +16,11 @@ values (3300,'Madrid','Madrid',(select country_id from countries where country_n
 insert into departments (department_id,department_name,location_id)
 values (280, 'IT Innovation', (select location_id from locations where city = 'Madrid'));
 
+insert into jobs
+values ('IT_SOFT','Software Engineering',4000,10000);
+
+
+
 /*
 Comprobar que se ven los datos insertados de forma conjunta con una JOIN
 y no de forma independiente. Con el fin de comprobar las relaciones.
