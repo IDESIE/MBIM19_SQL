@@ -69,7 +69,20 @@ where  departments.department_name = 'Marketing';
 -- en la parte visual de la aplicación se muestran desplegables
 -- para escoger los valores, pero luego eso se reemplaza en la consulta)
 -- Aquí usamos valores fijos de ejemplo.
-
+select 
+    count (employee_id),
+    employees.hire_date,
+    locations.city
+from 
+    employees
+    join departments 
+        on employees.department_id = departments.department_id
+    join locations
+        on departments.location_id = locations.location_id
+where (employees.hire_date between '10/10/1997' and '07/03/1998') and locations.city in ('Seattle','Roma')
+group by employees.hire_date,
+        locations.city;  
+        
 -- 13
 -- Un listado en el que se indique en líneas separadas
 -- una etiqueda que describa el valor y como valor:
