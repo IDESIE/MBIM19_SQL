@@ -8,7 +8,9 @@ from employees
 where salary =(select max(salary) from employees);
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
-
+select first_name, last_name,salary
+from employees
+where salary >(select avg(salary) from employees);
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
 
