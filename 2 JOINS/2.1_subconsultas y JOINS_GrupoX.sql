@@ -3,9 +3,7 @@
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
-select first_name, last_name
-from employees
-where salary =(select max(salary) from employees);
+
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
 
