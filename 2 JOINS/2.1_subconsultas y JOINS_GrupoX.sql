@@ -40,7 +40,7 @@ from employees e join departments d
 where salary in ((select max(salary) from employees), 
     (select min(salary) from employees))
 order by salary desc;
--- 6grg
+-- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
 -- 7
