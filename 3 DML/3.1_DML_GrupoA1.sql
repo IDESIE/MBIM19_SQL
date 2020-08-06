@@ -19,7 +19,10 @@ values (280, 'IT Innovation', (select location_id from locations where city = 'M
 insert into jobs
 values ('IT_SOFT','Software Engineering',4000,10000);
 
-
+insert into employees(employee_id,first_name,last_name,email,hire_date,job_id,department_id)
+values (207,'James','Dexter','JDEXTER','06/08/2020',
+(select job_id from jobs where job_title='Software Engineering'),
+(select department_id from departments where department_name='IT Innovation'));
 
 /*
 Comprobar que se ven los datos insertados de forma conjunta con una JOIN
