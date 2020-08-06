@@ -84,7 +84,22 @@ having
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
-
+select 
+    count(first_name) as Num_Employees,  
+    employees.department_id,
+    department_name
+from    
+    employees 
+    join departments on employees.department_id = departments.department_id
+group by  
+    employees.department_id, department_name
+having 
+    count(first_name) = (select max(count(first_name)) as Num_Employees
+    from    
+        employees 
+        join departments on employees.department_id = departments.department_id
+    group by  
+        employees.department_id, department_name)
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
