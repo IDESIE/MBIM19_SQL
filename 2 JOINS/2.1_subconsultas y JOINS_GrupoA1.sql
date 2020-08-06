@@ -22,7 +22,15 @@ from employees);
 
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
+select 
+first_name,
+last_name,
+manager_id
 
+from employees
+where employee_id = (SELECT manager_id
+FROM departments
+WHERE department_name = 'Marketing');
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
 select 
@@ -61,6 +69,20 @@ Where salary = (select
 
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
+select 
+    first_name,
+    last_name,
+    salary
+from (select 
+        rownum orden,
+        first_name,
+        last_name,
+        salary
+    from
+        employees
+    order by salary desc)
+where
+    rownum <= 3;
 
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
@@ -95,7 +117,7 @@ from
 where (employees.hire_date between '10/10/1997' and '07/03/1998') and locations.city in ('Seattle','Roma')
 group by employees.hire_date,
         locations.city;  
-        
+
 -- 13
 -- Un listado en el que se indique en líneas separadas
 -- una etiqueda que describa el valor y como valor:
