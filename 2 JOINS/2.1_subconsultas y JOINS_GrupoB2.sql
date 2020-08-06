@@ -125,5 +125,15 @@ having
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
-
+select 
+   count(hire_date) as Num_fecha,
+   hire_date
+from   employees
+group by 
+    hire_date
+having
+    count(hire_date) = (select max(count(hire_date)) as Num_fecha
+    from   employees
+    group by 
+        hire_date)
 ------------------------------------------------------------------------------------------------
