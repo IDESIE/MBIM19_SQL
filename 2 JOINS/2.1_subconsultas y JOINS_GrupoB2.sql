@@ -53,6 +53,10 @@ where department_id = (select department_id from departments where department_na
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
+
+
+
+
 -- 7
 -- Número de empleados y número de departamentos de todas las ciudades (nombre)
 -- ordenado por número de empleados descendentemente
