@@ -134,5 +134,11 @@ group by employees.hire_date,
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
-
+select hire_date
+from employees
+group by hire_date
+having count (employee_id) = (select max ("Empleados")
+                            from (select count (employee_id) "Empleados", hire_date
+                                    from employees
+                                    group by hire_date));
 ------------------------------------------------------------------------------------------------
