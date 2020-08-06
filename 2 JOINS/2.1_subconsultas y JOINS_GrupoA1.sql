@@ -113,6 +113,15 @@ where
 -- Cuyo formato es la primera letra del nombre más el apellido.
 -- Queremos saber si del listado de nombres y apellidos alguien coinciden
 
+select
+concat (substr (first_name,1,1), last_name),
+count(*)
+from
+employees
+group by
+concat (substr (first_name,1,1), last_name)
+having
+count(*) >1;
 -- 11
 -- Listar nombre, apellido y un literal que indique el salario.
 -- 'BAJO' si el salario es menor a la mediabaja (media entre el salario mínimo y la media de salarios)
@@ -160,5 +169,11 @@ group by employees.hire_date,
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
-
+select hire_date
+from employees
+group by hire_date
+having count (employee_id) = (select max ("Empleados")
+                            from (select count (employee_id) "Empleados", hire_date
+                                    from employees
+                                    group by hire_date));
 ------------------------------------------------------------------------------------------------
