@@ -40,7 +40,7 @@ from employees e join departments d
 where salary in ((select max(salary) from employees), 
     (select min(salary) from employees))
 order by salary desc;
--- 6grg
+-- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
 -- 7
@@ -99,5 +99,15 @@ where rownum < 4;
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
-
+select
+    hire_date
+from employees
+group by hire_date
+having
+    count(employee_id) = 
+    (Select max(numemp) 
+    from(select count(employee_id)numemp,
+    hire_date
+    from employees
+    group by hire_date));
 ------------------------------------------------------------------------------------------------
