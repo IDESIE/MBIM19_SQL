@@ -13,7 +13,13 @@ from employees
 where salary >(select avg(salary) from employees);
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
-
+select first_name, last_name
+from employees
+        join departments on employees.employee_id
+        = departments.manager_id
+where employee_id = (select  departments.manager_id
+from departments
+where departments.department_name = 'Marketing');
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
 
