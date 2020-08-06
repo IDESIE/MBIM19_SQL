@@ -3,15 +3,46 @@
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
+Select last_name, first_name, salary
+from employees
+where salary = (SELECT MAX(salary) from employees)
+    
+;
+
 
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
 
+select last_name, first_name, salary
+from employees
+
+where salary > (SELECT avg(salary) from employees)
+order by salary desc
+
+;
+
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
 
+
+select employees.last_name, employees.first_name
+from employees
+join departments
+on employees.department_id = departments.department_id
+where departments.department_name = 'Marketing'
+;
+
+
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
+
+select last_name, first_name
+from employees
+where department_id = (select department_id from departments where department_name = 'Marketing')
+;
+
+
+
 
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
