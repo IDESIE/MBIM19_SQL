@@ -5,14 +5,17 @@
 Describir la tabla employees
 */
 desc employees;
+
 /* 2
 Describir la tabla departments
 */
 desc departments;
+
 /* 3
 Describir la tabla locations
 */
 desc locations;
+
 /* 4
 Datos de la tabla regions
 */
@@ -47,21 +50,22 @@ from departments;
 Número y nombre de departamento, además, el código del empleado jefe,
 de la localidad 1700.
 */
-select department_ID, department_name, manager_ID, location_ID
+select department_ID, department_name, manager_ID
 from departments
 where location_ID = 1700 and
 manager_ID != 0;
+
 /* 10
 Nombre y número de departamento de los empleados.
 */
-select first_name, department_id
+select first_name, last_name, department_id
 from employees;
 
 /* 11
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
-select first_name, department_id
+select first_name, last_name, department_id
 from employees
 order by
 department_id asc; 
@@ -82,6 +86,7 @@ from employees
 group by department_id
 order by
 department_id desc;
+
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
@@ -105,6 +110,7 @@ códigos de los distintos trabajos que existen en el departamento 30
 select DISTINCT job_id
 from employees
 where department_id = 30;
+
 /* 17
 códigos de los distintos trabajos que existen en el departamento 60
 ordenados descendentemente
@@ -114,10 +120,12 @@ from employees
 where department_id=60
 order by
 job_id desc;
+
 /* 18
 Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 */
+
 
 /* 19
 Nombre, apellido y correo de los empleados del departamento 30

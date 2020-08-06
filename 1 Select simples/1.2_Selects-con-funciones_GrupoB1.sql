@@ -44,7 +44,7 @@ en orden descendente.
 Mostrar en una fila cuántos empleados son jefes de departamento
 y en otra fila cuántos son jefes de otros empleados.
 */
-desc employees;
+
 /* 9
 Listar nombre, apellido de los empleados que les coindice a la vez
 la primera letra de su nombre y el apellido
