@@ -81,6 +81,15 @@ where
 -- Cuyo formato es la primera letra del nombre más el apellido.
 -- Queremos saber si del listado de nombres y apellidos alguien coinciden
 
+select
+concat (substr (first_name,1,1), last_name),
+count(*)
+from
+employees
+group by
+concat (substr (first_name,1,1), last_name)
+having
+count(*) >1;
 -- 11
 -- Listar nombre, apellido y un literal que indique el salario.
 -- 'BAJO' si el salario es menor a la mediabaja (media entre el salario mínimo y la media de salarios)
