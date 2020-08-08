@@ -12,25 +12,35 @@ la palabra "de", el mes en minúscula en palabras, la palabra "de", el año en c
 finalizando con un punto. Luego la hora en formato 24h con minutos y segundos.
 Y de etiqueta del campo "Fecha actual".
 */
-
+select to_char (sysdate, 'Day, dd ' ||
+    ' month' || 
+    'yyyy. HH24:mm:ss'
+    ) "NOW"
+FROM dual;
 /* 2
 Día en palabras en el cual naciste
 */
-
+ select to_char('30/06/1995' , 'Day'
+ ) from dual;
 /* 3
 La suma de salarios, cuál es el mínimo, el máximo y la media de salario
 */
-
+ select sum(salary) , min(salary), max (salary), round(avg(salary) , 1) "MEDIA"
+ from employees;
 /* 4
 Cuántos empleados hay, cuántos tienen salario y cuántos tienen comisión.
 */
-
+select COUNT(employee_id), COUNT(salary),
+count(commission_pct)
+from employees;
 /* 5
 Por un lado la media entre la media de salarios y el mínimo salario
 Y por otro lado, la media entre la media de salarios y el máximo salario
 Solo la parte entera, sin decimales ni redondeo.
 */
-
+select round(avg(salary)+min(salary) / 2) mediaMIN,
+round(avg(salary)+max(salary) /2) mediaMAX
+from employees;
 /* 6
 Listar el número de departamento y el máximo salario en cada uno de ellos.
 */
