@@ -75,7 +75,9 @@ department_ID desc;
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
 */
-
+SELECT first_name, last_name, salary
+from employees
+order by employee_id desc;
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
 */
@@ -112,6 +114,9 @@ Nombre, apellido y correo de los empleados del departamento 30
 cuyo salario es menor a 3000
 o que sean del departamento 90
 */
+select first_name, last_name, email
+from employees
+where (department_id = 30 AND salary <3000) OR department_id = 90;
 
 /* 20
 nombre, apellido y número de departamento de los empleados
@@ -131,23 +136,39 @@ y que se cumpla que son del departamento 60 o del 90
 ordenados por número de departamento descendentemente
 y por salario ascendentemente.
 */
-
+select first_name, last_name,department_id,salary, commission_pct
+from employees
+where (commission_pct is null OR 
+salary < 6000) and
+ department_id in (60,90)
+order by department_id desc, salary asc;
 /* 22
 Número de empleado, nombre y apellido de los empleados
 desde el apellido que empieza por L hasta los que su apellido
 empieza por la R, incluidos.
 */
-
+select employee_id, first_name, last_name
+from employees
+where last_name between 'L%' and 'S%'
+order by last_name;
 /* 23
 Lista de apellidos que su segunda letra sea una 'a'
 */
-
+select last_name
+from employees
+WHERE last_name like '_a%';
 /* 24
 Lista de apellidos de empleados donde el apellido empieza por alguna vocal
 y que su salario es menor a 3000 o mayor a 9000
 y debe cumplirse que su departamento es el 30, 60 o 90.
 */
-
+select last_name
+from employees
+where (last_name like 'A%' OR last_name 
+like 'E%' OR last_name like 'I%'
+ OR last_name like 'O%'  OR last_name like 'U%') and 
+ salary between 3000 and 9000 AND
+ department_id in(30,60,90);
 /* 25
 Nombre, apellido y el salario de los empleados
 pero como salario una etiqueta que indique 
@@ -158,23 +179,33 @@ y 'MEDIO' si está entre medias
 /* 26
 Listar los correos concatenados con el texto '@company.com'
 */
-
+ select 
+    concat(email, '@company.com')
+from employees;
 /* 27
 Lista de nombres de las ciudades que su país es 'US'
 */
-
+select city
+from locations
+where country_id = 'US';
 /* 28
 Lista de nombre de las ciudades que su país no es Estados Unidos
 */
-
+select city
+from locations
+where country_id != 'US';
 /* 29
 Número y nombre de los departamentos que tienen un jefe.
 */
-
+select department_name, department_id AS d_e_dept_id
+from departments
+where manager_id is not null;
 /* 30
 Número y nombre de los departamentos que no tienen jefe.
 */
-
+select department_name, department_id AS d_e_dept_id
+from departments
+where manager_id is null;
 /* 31
 Nombre de las columnas de la tabla de empleados 'Employees'
 que no tienen un guión bajo en el nombre.
