@@ -109,10 +109,23 @@ Un listado por año de la media de salarios
 de los empleados que ingresaron ese año
 ordenados de forma descendente por año
 */
-
+select to_char(hire_date, 'yyyy'), round(avg(salary)) media
+from employees
+group by hire_date
+order by hire_date desc;
 /* 12
 Nombre del día en el que más empleados
 se han dado de alta
 */
-
+select
+    to_char(hire_date, 'Day')
+from employees
+group by hire_date
+having
+    count(employee_id) = 
+    (Select max(numemp) 
+    from(select count(employee_id)numemp,
+    hire_date
+    from employees
+    group by hire_date));
 ------------------------------------------------------------------------------------------------
