@@ -47,8 +47,18 @@ where department_id = (select department_id from departments where department_na
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
 -- del empleado que gana más y el que menos
-
-
+Select 
+    e.first_name,
+    e.last_name,
+    e.salary,
+    d.department_name,
+    l.city
+from
+    employees e
+    join departments   d on e.department_id = d.department_id
+    join locations     l on d.location_id = l.location_id
+    where
+        e.salary = (select max(salary) from employees);
 
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
@@ -97,8 +107,8 @@ where department_id = (select department_id from departments where department_na
 -- 13
 -- Un listado en el que se indique en líneas separadas
 -- una etiqueda que describa el valor y como valor:
--- el número de empleados en Seattle, 
--- el número de departamentos con empleados en Seattle
+-- el número de empleados en Seattle,
+-- el número  de departamentos con empleados en Seattle
 -- el número de departamentos sin empleados en Seattle
 -- el número de jefes de empleado en Seattle
 -- el número de jefes de departamento en Seattle
