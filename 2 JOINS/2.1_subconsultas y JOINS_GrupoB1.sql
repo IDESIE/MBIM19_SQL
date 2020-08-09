@@ -3,43 +3,28 @@
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
-select first_name, last_name
-from employees
-where salary =(select max(salary) from employees);
+Select
+    Max(salary)
+From employees;
+Select last_name
+From employees
+Where salary = (Select
+            Max(salary)
+            From employees);
+            
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
-select first_name, last_name,salary
-from employees
-where salary >(select avg(salary) from employees);
+
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
-select first_name, last_name
-from employees
-        join departments on employees.employee_id
-        = departments.manager_id
-where employee_id = (select  departments.manager_id
-from departments
-where departments.department_name = 'Marketing');
+
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
-select e.first_name,e.last_name
-from 
-employees e 
-join departments d
-        on e.department_id
-        =   d.department_id
-where 
-d.department_name='Marketing';
+
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
 -- del empleado que gana más y el que menos
-select first_name, last_name, salary, d.department_name, d.location_id
-from employees e join departments d
-       on e.department_id 
-       = d.department_id
-where salary in ((select max(salary) from employees), 
-    (select min(salary) from employees))
-order by salary desc;
+
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
@@ -55,13 +40,7 @@ order by salary desc;
 
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
-select last_name, salary
-from
-    (select
-    rownum orden, last_name, salary
-from employees
-order by salary desc)
-where rownum < 4;
+
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
@@ -99,15 +78,5 @@ where rownum < 4;
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
-select
-    hire_date
-from employees
-group by hire_date
-having
-    count(employee_id) = 
-    (Select max(numemp) 
-    from(select count(employee_id)numemp,
-    hire_date
-    from employees
-    group by hire_date));
+
 ------------------------------------------------------------------------------------------------
