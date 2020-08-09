@@ -59,8 +59,8 @@ select last_name, salary
 from
     (select
     rownum orden, last_name, salary
-from employees
-order by salary desc)
+    from employees
+    order by salary desc)
 where rownum < 4;
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.

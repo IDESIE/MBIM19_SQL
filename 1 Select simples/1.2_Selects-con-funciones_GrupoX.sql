@@ -103,7 +103,7 @@ select
     count(employee_id)
 from employees
 group by hire_date
-order by hire_date desc;2e
+order by hire_date desc;
 /* 11
 Un listado por año de la media de salarios
 de los empleados que ingresaron ese año
