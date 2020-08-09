@@ -103,10 +103,6 @@ from departments
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
-select DISTINCT department_ID
-from departments
-order by
-department_ID desc;
 
 select DISTINCT department_ID
 from departments
@@ -260,13 +256,7 @@ Lista de apellidos de empleados donde el apellido empieza por alguna vocal
 y que su salario es menor a 3000 o mayor a 9000
 y debe cumplirse que su departamento es el 30, 60 o 90.
 */
-select last_name
-from employees
-where (last_name like 'A%' OR last_name 
-like 'E%' OR last_name like 'I%'
- OR last_name like 'O%'  OR last_name like 'U%') and 
- salary between 3000 and 9000 AND
- department_id in(30,60,90);
+
 /* 25
 Nombre, apellido y el salario de los empleados
 pero como salario una etiqueta que indique 
