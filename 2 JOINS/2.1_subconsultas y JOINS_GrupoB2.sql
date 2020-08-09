@@ -3,17 +3,6 @@
 ------------------------------------------------------------------------------------------------
 -- 1
 -- Nombre y apellido del empleado que más gana.
-<<<<<<< HEAD:2 JOINS/2.1_subconsultas y JOINS_GrupoB1.sql
-Select
-    Max(salary)
-From employees;
-Select last_name
-From employees
-Where salary = (Select
-            Max(salary)
-            From employees);
-            
-=======
 Select last_name, first_name, salary
 from employees
 where salary = (SELECT MAX(salary) from employees)
@@ -21,7 +10,6 @@ where salary = (SELECT MAX(salary) from employees)
 ;
 
 
->>>>>>> GrupoB2:2 JOINS/2.1_subconsultas y JOINS_GrupoB2.sql
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
 
