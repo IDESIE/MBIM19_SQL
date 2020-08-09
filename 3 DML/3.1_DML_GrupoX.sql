@@ -38,12 +38,17 @@ where employee_id = 207;
 /* 2
 Actualizarle el salario a 60000
 */
-
+update employees
+set salary = 6000
+where employee_id = 207;
 /* 3
 Colocarle una comisión igual a la media de comisiones
 Manteniendo dos centésimas como valor.
 */
-
+update employees
+set commission_pct = 
+    (select round(avg(commission_pct), 2) from employees)
+where employee_id = 207;
 /* 4
 Anonimizar sus datos personales: nombre, apellido, email, teléfono
 */
