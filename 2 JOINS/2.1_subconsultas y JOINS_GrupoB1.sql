@@ -15,49 +15,18 @@ Where salary = (Select
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
 
-select last_name, first_name, salary
-from employees
-
-where salary > (SELECT avg(salary) from employees)
-order by salary desc
-
-;
-
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
 
-
-select employees.last_name, employees.first_name
-from employees
-join departments
-on employees.department_id = departments.department_id
-where departments.department_name = 'Marketing'
-;
-
-
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
-
-select last_name, first_name
-from employees
-where department_id = (select department_id from departments where department_name = 'Marketing')
-;
-
-
-
 
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
 -- del empleado que gana más y el que menos
 
-
-
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
-
-
-
-
 
 -- 7
 -- Número de empleados y número de departamentos de todas las ciudades (nombre)
@@ -76,9 +45,6 @@ where department_id = (select department_id from departments where department_na
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
 -- Queremos saber si del listado de nombres y apellidos alguien coinciden
-
-
-
 
 -- 11
 -- Listar nombre, apellido y un literal que indique el salario.
@@ -108,34 +74,9 @@ where department_id = (select department_id from departments where department_na
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
-select 
-    count(first_name) as Num_Employees,  
-    employees.department_id,
-    department_name
-from    
-    employees 
-    join departments on employees.department_id = departments.department_id
-group by  
-    employees.department_id, department_name
-having 
-    count(first_name) = (select max(count(first_name)) as Num_Employees
-    from    
-        employees 
-        join departments on employees.department_id = departments.department_id
-    group by  
-        employees.department_id, department_name)
+
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
-select 
-   count(hire_date) as Num_fecha,
-   hire_date
-from   employees
-group by 
-    hire_date
-having
-    count(hire_date) = (select max(count(hire_date)) as Num_fecha
-    from   employees
-    group by 
-        hire_date)
+
 ------------------------------------------------------------------------------------------------
