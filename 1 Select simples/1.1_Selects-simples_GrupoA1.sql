@@ -154,7 +154,7 @@ email
 from employees
 where
 department_id=30 and
-salary<=3000 or
+salary<3000 or
 department_id=90;
 /* 20
 nombre, apellido y número de departamento de los empleados
