@@ -84,13 +84,28 @@ where rownum < 4;
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
 -- Queremos saber si del listado de nombres y apellidos alguien coinciden
+select  repeat(concat(substr(first_name, 1,1),last_name),>1)
+from employees
+group by concat(substr(first_name, 1,1),last_name);
 
+select concat(substr(first_name, 1,1),last_name), count(*)
+from employees
+group by concat(substr(first_name, 1,1),last_name)
+having count(*) >1;
 -- 11
 -- Listar nombre, apellido y un literal que indique el salario.
 -- 'BAJO' si el salario es menor a la mediabaja (media entre el salario mínimo y la media de salarios)
 -- 'ALTO' si el salario es mayor a la mediaalta (media entre el salario máximo y la media de salarios)
 -- 'MEDIO' si el salario está entre la mediabaja y medialata.
-
+SELECT first_name, last_name, 
+    case
+        when salary < (avg(salary)+min(salary)) / 2 
+            then 'BAJO'
+        when salary > (avg(salary)+max(salary)) /2
+            then 'ALTO' 
+        else 'MEDIO'
+    end salary
+from employees;
 -- 12
 -- Número de empleados dados de alta por día
 -- entre dos fechas. Ej: entre 1997-10-10 y 1998-03-07
