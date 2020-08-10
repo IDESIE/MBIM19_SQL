@@ -42,23 +42,41 @@ where salary in ((select max(salary) from employees),
 order by salary desc;
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
-
+select count(e.employee_id), count(d.department_id), city
+from locations l 
+    join departments d on l.location_id = d.location_id
+    join employees e on d.department_id = e.department_id
+group by city;
 -- 7
 -- Número de empleados y número de departamentos de todas las ciudades (nombre)
 -- ordenado por número de empleados descendentemente
-
+select count(e.employee_id), count(d.department_id), city
+from locations l 
+    left join departments d on l.location_id = d.location_id
+    left join employees e on d.department_id = e.department_id
+group by city
+order by 2 desc;
 -- 8
 -- Mostrar el número de empleado, nombre y apellido de los empleados
 -- que sean jefes tanto como de departamento como de otro empleado
 -- indicando en una sola columna con un literal 'DEP' si es jefe de departamento
 -- y 'EMP' si es jefe de otro empleado. Ordenados por número de empleado.
-
+select employee_id, first_name, last_name, 
+    case
+        when employee_id = d.manager_id then 'DEP'
+        else  'EMP'
+    end employee_id
+from employees e 
+    join departments d on e.department_id = d.department_id
+where employee_id = d.manager_id
+group by manager_id
+order by count(employee_id);
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
-select last_name, salary
+select first_name, last_name, salary
 from
     (select
-    rownum orden, last_name, salary
+    rownum orden, last_name, salary, first_name
 from employees
 order by salary desc)
 where rownum < 4;

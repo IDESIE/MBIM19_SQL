@@ -8,7 +8,7 @@ desc employees;
 /* 2
 Describir la tabla departments
 */
-DESC DEPARTMENTS;
+desc DEPARTMENTS;
 /* 3
 Describir la tabla locations
 */
@@ -175,7 +175,13 @@ pero como salario una etiqueta que indique
 'BAJO' si es menor a 4280, 'ALTO' si es mayor a 15230
 y 'MEDIO' si está entre medias
 */
-
+select first_name, last_name,
+     case 
+        when salary < 4280 then 'BAJO'
+        when salary > 15230 then 'ALTO'
+        else 'MEDIO'
+    end salary 
+from employees;
 /* 26
 Listar los correos concatenados con el texto '@company.com'
 */
@@ -197,19 +203,22 @@ where country_id != 'US';
 /* 29
 Número y nombre de los departamentos que tienen un jefe.
 */
-select department_name, department_id AS d_e_dept_id
+select department_name, department_id
 from departments
 where manager_id is not null;
 /* 30
 Número y nombre de los departamentos que no tienen jefe.
 */
-select department_name, department_id AS d_e_dept_id
+select department_name, department_id 
 from departments
 where manager_id is null;
 /* 31
 Nombre de las columnas de la tabla de empleados 'Employees'
 que no tienen un guión bajo en el nombre.
 */
-
+select column_name
+from user_tab_columns
+where table_name = 'EMPLOYEES' and 
+column_name not like '%@_%' escape '@';
 --
 ------------------------------------------------------------------------------------------------

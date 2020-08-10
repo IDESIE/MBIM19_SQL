@@ -52,3 +52,7 @@ where employee_id = 207;
 /* 4
 Anonimizar sus datos personales: nombre, apellido, email, teléfono
 */
+update employees
+set first_name = null, last_name = 'anonymized',
+email = 'anonymized', phone_number = 'anonymized'
+where employee_id = 207;
