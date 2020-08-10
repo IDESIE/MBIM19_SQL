@@ -69,7 +69,7 @@ FROM EMPLOYEES;
 Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
-SELECT FIRST_NAME, DEPARTMENT_ID
+SELECT DEPARTMENT_ID, DEPARTMENT_NAME
 FROM EMPLOYEES
 ORDER BY
 DEPARTMENT_ID ASC; 
@@ -88,7 +88,6 @@ SELECT DISTINCT DEPARTMENT_ID
 FROM EMPLOYEES
 ORDER BY 
 DEPARTMENT_ID DESC;
-
 
 /* 14
 Nombre, apellido y salario ordenados por id de empleado descendentemente
