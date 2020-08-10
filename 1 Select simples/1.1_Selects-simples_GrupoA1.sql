@@ -140,7 +140,7 @@ email
 from employees
 where
 department_id=30 and
-salary<=3000;
+salary<3000;
 
 /* 19
 Nombre, apellido y correo de los empleados del departamento 30
