@@ -19,13 +19,13 @@ address
 
 create table FACILITIES(
     id number,
-        constraint pk_facilities_id primary key(id),
     guid varchar2(4000),
-        constraint uq_facilities_guide unique(guid),
     name varchar2(4000),
     description varchar2(4000),
     category varchar2(4000),
     address varchar2(4000)
+    constraint pk_facilities_id primary key(id),
+    constraint uq_facilities_guide unique(guid),
 );
 
 FLOORS
@@ -59,6 +59,23 @@ description
 usableHeight
 area
 floorId
+
+create table SPACES(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000) not null,
+    category varchar2(4000),
+    description varchar2(4000),
+    height varchar2(4000),
+    facilityId number not null,
+    usableHeight varchar2(4000),
+    area varchar2(4000),
+    floorId number not null,
+    constraint pk_facilities_id primary key(id),
+    constraint uq_facilities_guide unique(guid),
+    constraint uq_floors_name unique (name),
+    constraint uq_spaces_name unique (name)
+);
 
 COMPONENTS
 id
