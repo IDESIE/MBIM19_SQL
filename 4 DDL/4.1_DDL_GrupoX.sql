@@ -17,6 +17,17 @@ description
 category
 address
 
+create table FACILITIES(
+    id number,
+        constraint pk_facilities_id primary key(id),
+    guid varchar2(4000),
+        constraint uq_facilities_guide unique(guid),
+    name varchar2(4000),
+    description varchar2(4000),
+    category varchar2(4000),
+    address varchar2(4000)
+);
+
 FLOORS
 id
 guid
