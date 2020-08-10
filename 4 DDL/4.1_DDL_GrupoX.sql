@@ -37,6 +37,19 @@ description
 height
 facilityId
 
+create table FLOORS(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000) not null,
+    category varchar2(4000),
+    description varchar2(4000),
+    height varchar2(4000),
+    facilityId number not null,
+    constraint pk_facilities_id primary key(id),
+    constraint uq_facilities_guide unique(guid),
+    constraint uq_floors_name unique (name)
+);
+
 SPACES
 id
 guid
