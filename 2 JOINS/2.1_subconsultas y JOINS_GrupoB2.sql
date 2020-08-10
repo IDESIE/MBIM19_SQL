@@ -96,6 +96,18 @@ ORDER BY rownum
 -- para escoger los valores, pero luego eso se reemplaza en la consulta)
 -- Aquí usamos valores fijos de ejemplo.
 
+select 
+    e.first_name,
+    e.last_name,
+    e.hire_date,
+    l.city
+from employees e 
+    join departments    d on e.department_id = d.department_id
+    join locations      l on l.location_id = d.location_id
+where e.hire_date 
+    BETWEEN TO_DATE('1997-10-10', 'YYYY/MM/DD') 
+            AND TO_DATE('1998-03-07', 'YYYY/MM/DD')
+            
 -- 13
 -- Un listado en el que se indique en líneas separadas
 -- una etiqueda que describa el valor y como valor:
