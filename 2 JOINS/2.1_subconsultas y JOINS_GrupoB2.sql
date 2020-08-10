@@ -6,24 +6,19 @@
 Select last_name, first_name, salary
 from employees
 where salary = (SELECT MAX(salary) from employees)
-    
 ;
-
 
 -- 2
 -- Nombre, apellido y salario de los empleados que ganan más que la media de salarios.
 
 select last_name, first_name, salary
 from employees
-
 where salary > (SELECT avg(salary) from employees)
 order by salary desc
-
 ;
 
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
-
 
 select employees.last_name, employees.first_name
 from employees
@@ -32,21 +27,17 @@ on employees.department_id = departments.department_id
 where departments.department_name = 'Marketing'
 ;
 
-
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
-
 select last_name, first_name
 from employees
 where department_id = (select department_id from departments where department_name = 'Marketing')
 ;
 
-
-
-
 -- 5
 -- Nombre, apellido, salario, nombre del departamento y ciudad
 -- del empleado que gana más y el que menos
+
 Select 
     e.first_name,
     e.last_name,
@@ -75,6 +66,7 @@ from
 
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
+
 SELECT 
     first_name, last_name, salary
 FROM 
@@ -82,6 +74,7 @@ FROM
 WHERE rownum <= 3
 ORDER BY rownum 
 ;
+
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
@@ -111,6 +104,7 @@ ORDER BY rownum
 -- el número de departamentos sin empleados en Seattle
 -- el número de jefes de empleado en Seattle
 -- el número de jefes de departamento en Seattle
+
 select 
     count(e. first_name),
     d.department_id as d_department,
@@ -170,9 +164,11 @@ where
     d.manager_id is not null
 group by
     d.manager_id
+
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
+
 select 
     count(first_name) as Num_Employees,  
     employees.department_id,
@@ -189,9 +185,11 @@ having
         join departments on employees.department_id = departments.department_id
     group by  
         employees.department_id, department_name)
+
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
+
 select 
    count(hire_date) as Num_fecha,
    hire_date
