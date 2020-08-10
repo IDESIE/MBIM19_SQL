@@ -95,7 +95,7 @@ Nombre, apellido y salario ordenados por id de empleado descendentemente
 SELECT FIRST_NAME, LAST_NAME, SALARY
 FROM EMPLOYEES
 ORDER BY 
-DEPARTMENT_ID DESC;
+EMPLOYEE_ID DESC;
 
 /* 15
 Nombre, apellido y salario ordenado por apellido ascendentemente y salario descendentemente
