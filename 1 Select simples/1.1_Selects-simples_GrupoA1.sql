@@ -70,7 +70,7 @@ Nombre y número de departamento de los empleados
 ordenados por número de departamento ascendentemente.
 */
 SELECT DEPARTMENT_ID, DEPARTMENT_NAME
-FROM EMPLOYEES
+FROM DEPARTMENTS
 ORDER BY
 DEPARTMENT_ID ASC; 
 
@@ -78,14 +78,14 @@ DEPARTMENT_ID ASC;
 Listar los distintos números de departamento en el que trabajan los empleados.
 */
 SELECT DISTINCT DEPARTMENT_ID
-FROM EMPLOYEES;
+FROM DEPARTMENTS;
 
 /* 13
 Listar los distintos números de departamento en el que trabajan los empleados
 ordenados descendentemente.
 */
 SELECT DISTINCT DEPARTMENT_ID
-FROM EMPLOYEES
+FROM DEPARTMENTS
 ORDER BY 
 DEPARTMENT_ID DESC;
 
