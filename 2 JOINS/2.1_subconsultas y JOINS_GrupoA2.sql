@@ -124,7 +124,11 @@ from employees;
 -- el número de departamentos sin empleados en Seattle
 -- el número de jefes de empleado en Seattle
 -- el número de jefes de departamento en Seattle
-
+select department_id 
+from departments d
+    join locations l on l.location_id = d.location_id
+    join departments d on d.department_id = e.department_id
+where l.city = Seatle;
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
