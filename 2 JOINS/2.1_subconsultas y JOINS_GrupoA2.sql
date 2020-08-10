@@ -124,11 +124,35 @@ from employees;
 -- el número de departamentos sin empleados en Seattle
 -- el número de jefes de empleado en Seattle
 -- el número de jefes de departamento en Seattle
-select department_id 
-from departments d
-    join locations l on l.location_id = d.location_id
-    join departments d on d.department_id = e.department_id
-where l.city = Seatle;
+select count(employee_id) empleados, 
+    count(select count(employee_id)
+        from employees e 
+            JOIN departments d on e.department_id=d.department_id 
+            JOIN locations l on d.location_id = l.location_id
+        where l.city = 'Southlake' 
+        group by e.department_id
+        having count(employee_id) is not null) dptosConEmp, 
+    count(select count(employee_id)
+        from employees e 
+            JOIN departments d on e.department_id=d.department_id 
+            JOIN locations l on d.location_id = l.location_id
+        where l.city = 'Southlake' 
+        group by e.department_id
+        having count(employee_id) is null) dptosSinEmp,
+    count(select count(d.manager_id)
+        from employees e 
+            JOIN departments d on e.department_id=d.department_id 
+            JOIN locations l on d.location_id = l.location_id
+        where l.city = 'Southlake' and d.manager_id = e.manager_id) jefeEmplSeatle, 
+    count(select count(d.manager_id)
+        from employees e 
+            JOIN departments d on e.department_id=d.department_id 
+            JOIN locations l on d.location_id = l.location_id
+        where l.city = 'Southlake' and d.manager_id != e.manager_id) jefeDptoSeatle
+from employees e
+    JOIN departments d on e.department_id = d.department_id
+    JOIN locations l on d.location_id = l.location_id
+where l.city = 'Southlake';
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
