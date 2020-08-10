@@ -63,10 +63,6 @@ from
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 
-
-
-
-
 -- 7
 -- Número de empleados y número de departamentos de todas las ciudades (nombre)
 -- ordenado por número de empleados descendentemente
@@ -79,14 +75,17 @@ from
 
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
-
+SELECT 
+    first_name, last_name, salary
+FROM 
+    (SELECT first_name, last_name, salary from employees order by Salary desc) 
+WHERE rownum <= 3
+ORDER BY rownum 
+;
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
 -- Queremos saber si del listado de nombres y apellidos alguien coinciden
-
-
-
 
 -- 11
 -- Listar nombre, apellido y un literal que indique el salario.
