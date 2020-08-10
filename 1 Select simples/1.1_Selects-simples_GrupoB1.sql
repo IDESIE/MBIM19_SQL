@@ -196,25 +196,31 @@ Número de empleado, nombre y apellido de los empleados
 desde el apellido que empieza por L hasta los que su apellido
 empieza por la R, incluidos.
 */
-select
-    employee_id,
-    first_name,
-    last_name,
+select employee_id, first_name, last_name
 from employees
-order 
-    last_name = 'L' and
-    last_name = 'R';
+where last_name between 'L%' and 'S%'
+order by last_name;
 
 /* 23
 Lista de apellidos que su segunda letra sea una 'a'
 */
+select last_name
+from employees
+WHERE last_name like '_a%';
 
 /* 24
 Lista de apellidos de empleados donde el apellido empieza por alguna vocal
 y que su salario es menor a 3000 o mayor a 9000
 y debe cumplirse que su departamento es el 30, 60 o 90.
 */
-
+select last_name
+from employees
+where (last_name like 'A%' OR last_name 
+like 'E%' OR last_name like 'I%'
+ OR last_name like 'O%'  OR last_name like 'U%') and 
+ salary between 3000 and 9000 AND
+ department_id in(30,60,90);
+ 
 /* 25
 Nombre, apellido y el salario de los empleados
 pero como salario una etiqueta que indique 
