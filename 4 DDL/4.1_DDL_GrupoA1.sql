@@ -17,6 +17,17 @@ description
 category
 address
 
+create table FACILITIES(
+    id number,
+    guid varchar2(4000),
+    name varchar2 (4000) not null,
+    description varchar2 (4000),
+    category varchar2(4000),
+    address varchar2 (4000),
+    constraint pk_facilities_id primary key (id),
+    constraint uq_facilities_guid unique(guid)
+);
+
 FLOORS
 id
 guid
@@ -25,6 +36,19 @@ category
 description
 height
 facilityId
+
+create table FLOORS(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000) not null,
+    category varchar2(4000),
+    description varchar2 (4000),
+    height varchar2 (4000),
+    facilityId number not null,
+    constraint pk_floors_id primary key (id),
+    constraint uq_floors_guid unique(guid),
+    constraint uq_floors_name unique(name)
+);
 
 SPACES
 id
@@ -36,6 +60,20 @@ usableHeight
 area
 floorId
 
+create table SPACES(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000) not null,
+    category varchar2(4000),
+    description varchar2 (4000),
+    usableHeight varchar2 (4000),
+    area varchar2 (4000),
+    floorId number not null,
+    constraint pk_spaces_id primary key (id),
+    constraint uq_spaces_guid unique(guid),
+    constraint uq_spaces_name unique(name)
+);
+
 COMPONENTS
 id
 guid
@@ -46,6 +84,20 @@ installatedOn
 spaceId
 typeId
 
+create table TYPES(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000)  not null,
+    description varchar2 (4000),
+    modelNumber varchar2 (4000),
+    color varchar2 (4000),
+    warrantyYears number,
+    constraint pk_types_id primary key (id),
+    constraint uq_types_guid unique(guid),
+    constraint uq_types_name unique(name),
+    constraint ck_types_warrantyYears check(warrantyYears>0)
+);
+
 TYPES
 id
 guid
@@ -55,6 +107,19 @@ modelNumber
 color
 warrantyYears
 
+create table COMPONENTS(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000)  not null,
+    description varchar2 (4000),
+    serialNumber varchar2 (4000),
+    installatedOn date default sysdate,
+    spaceId number not null,
+    typeId number not null,
+    constraint pk_components_id primary key (id),
+    constraint uq_components_guid unique(guid),
+    constraint uq_components_name unique(name)
+);
 
 En las definiciones establacer las siguientes restricciones
 -Los guid deben ser únicos.
