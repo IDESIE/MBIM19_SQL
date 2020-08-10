@@ -23,9 +23,9 @@ create table FACILITIES(
     name varchar2(4000),
     description varchar2(4000),
     category varchar2(4000),
-    address varchar2(4000)
+    address varchar2(4000),
     constraint pk_facilities_id primary key(id),
-    constraint uq_facilities_guide unique(guid),
+    constraint uq_facilities_guide unique(guid)
 );
 
 FLOORS
@@ -45,8 +45,8 @@ create table FLOORS(
     description varchar2(4000),
     height varchar2(4000),
     facilityId number not null,
-    constraint pk_facilities_id primary key(id),
-    constraint uq_facilities_guide unique(guid),
+    constraint pk_floors_id primary key(id),
+    constraint uq_floors_guide unique(guid),
     constraint uq_floors_name unique (name)
 );
 
@@ -71,9 +71,8 @@ create table SPACES(
     usableHeight varchar2(4000),
     area varchar2(4000),
     floorId number not null,
-    constraint pk_facilities_id primary key(id),
-    constraint uq_facilities_guide unique(guid),
-    constraint uq_floors_name unique (name),
+    constraint pk_spaces_id primary key(id),
+    constraint uq_spaces_guide unique(guid),
     constraint uq_spaces_name unique (name)
 );
 
@@ -87,6 +86,26 @@ installatedOn
 spaceId
 typeId
 
+create table COMPONENTS(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000) not null,
+    category varchar2(4000),
+    description varchar2(4000),
+    height varchar2(4000),
+    facilityId number not null,
+    usableHeight varchar2(4000),
+    area varchar2(4000),
+    floorId number not null,
+    serialNumber varchar2(4000),
+    installatedOn varchar2(4000),
+    spaceId number not null,
+    typeId varchar2(4000),
+    constraint pk_components_id primary key(id),
+    constraint uq_components_guide unique(guid),
+    constraint uq_components_name unique (name)
+);
+
 TYPES
 id
 guid
@@ -96,6 +115,28 @@ modelNumber
 color
 warrantyYears
 
+create table TYPES(
+    id number,
+    guid varchar2(4000),
+    name varchar2(4000) not null,
+    category varchar2(4000),
+    description varchar2(4000),
+    height varchar2(4000),
+    facilityId number not null,
+    usableHeight varchar2(4000),
+    area varchar2(4000),
+    floorId number not null,
+    serialNumber varchar2(4000),
+    installatedOn varchar2(4000),
+    spaceId number not null,
+    typeId varchar2(4000),
+    modelNumber varchar2(4000),
+    color varchar2(4000),
+    warrantyYears varchar2(4000),
+    constraint pk_types_id primary key(id),
+    constraint uq_types_guide unique(guid),
+    constraint uq_types_name unique (name)
+);
 
 En las definiciones establacer las siguientes restricciones
 -Los guid deben ser únicos.
