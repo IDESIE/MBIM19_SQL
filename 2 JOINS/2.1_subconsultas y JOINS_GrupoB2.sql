@@ -111,7 +111,65 @@ ORDER BY rownum
 -- el número de departamentos sin empleados en Seattle
 -- el número de jefes de empleado en Seattle
 -- el número de jefes de departamento en Seattle
-
+select 
+    count(e. first_name),
+    d.department_id as d_department,
+    l.location_id   as l_location
+    
+from    employees e 
+    join departments    d on e.department_id = d.department_id
+    join locations      l on d.location_id = l.location_id
+where
+    l.city = 'Seattle'
+group by
+    d.department_id, l.location_id
+---------------------------------------------------------
+select 
+    d.department_name,
+    count(d.department_name)
+from
+    departments d
+    join employees  e on d.department_id = e.department_id
+    join locations  l on d.location_id = l.location_id
+where
+    l.city = 'Seattle'
+group by
+    d.department_name
+-----------------------------------------------------------
+select 
+    d.department_name,
+    count(d.department_name)
+from
+    departments d
+    join employees  e on d.department_id = e.department_id
+    join locations  l on d.location_id = l.location_id
+where
+    l.city != 'Seattle'
+group by
+    d.department_name
+------------------------------------------------------------
+select 
+    count(e.manager_id)
+from
+    employees e
+    join departments  d on e.manager_id = d.manager_id
+    join locations  l on d.location_id = l.location_id
+where
+    l.city = 'Seattle'
+group by
+    e.manager_id
+---------------------------------------------------------------
+select 
+    d.manager_id,
+    count(d.manager_id)
+from
+    departments d
+    join locations  l on d.location_id = l.location_id
+where
+    l.city = 'Seattle' and
+    d.manager_id is not null
+group by
+    d.manager_id
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
