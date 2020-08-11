@@ -64,6 +64,17 @@ from
 -- indicando en una sola columna con un literal 'DEP' si es jefe de departamento
 -- y 'EMP' si es jefe de otro empleado. Ordenados por número de empleado.
 
+select
+    employee_id,
+    first_name,
+    last_name,
+    case
+        when employee_id = d.manager_id then 'DEP'
+        when employee_id = e.manager_id then 'EMP'
+    end employee_id
+from employees e
+    join departments d on e.department_id = d.department_id
+
 -- 9
 -- Listar el nombre, apellido y salario de los tres empleados que ganan más
 
@@ -86,6 +97,23 @@ ORDER BY rownum
 -- 'ALTO' si el salario es mayor a la mediaalta (media entre el salario máximo y la media de salarios)
 -- 'MEDIO' si el salario está entre la mediabaja y medialata.
 
+select
+    first_name,
+    last_name,
+    case
+        when salary > mediaalta then 'ALTO'
+        when salary < mediabaja then 'BAJO'
+        else
+            'MEDIO'
+    end salario
+from
+    employees,
+    (select
+        (avg(salary)+min(salary))/2 mediabaja,
+        (avg(salary)+min(salary))/2 mediaalta
+    from
+        employees) medias;
+        
 -- 12
 -- Número de empleados dados de alta por día
 -- entre dos fechas. Ej: entre 1997-10-10 y 1998-03-07
