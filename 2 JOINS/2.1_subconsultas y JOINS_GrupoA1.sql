@@ -127,7 +127,23 @@ count(*) >1;
 -- 'BAJO' si el salario es menor a la mediabaja (media entre el salario mínimo y la media de salarios)
 -- 'ALTO' si el salario es mayor a la mediaalta (media entre el salario máximo y la media de salarios)
 -- 'MEDIO' si el salario está entre la mediabaja y mediaalta
-
+select 
+    first_name, 
+    last_name,
+    case
+        when salary > Mediaalta then
+            'ALTO'
+        when salary < Mediabaja then
+            'BAJO'
+        else 
+            'MEDIO'
+    end salario
+from employees,
+    (select 
+        (avg(salary)+min(salary))/2 Mediabaja,
+        (avg(salary)+max(salary))/2 Mediaalta
+    from employees) medias
+order by salary desc;
 
 
 -- 12
