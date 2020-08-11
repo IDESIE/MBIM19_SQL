@@ -150,6 +150,7 @@ order by salary desc;
 select 
     first_name, 
     last_name,
+    medias.department_id,
     case
         when salary > Mediaalta then
             'ALTO'
@@ -158,13 +159,16 @@ select
         else 
             'MEDIO'
     end salario
-from employees,
+from employees
+    join
     (select 
         department_id,
         (avg(salary)+min(salary))/2 Mediabaja,
         (avg(salary)+max(salary))/2 Mediaalta
     from employees
-    group by department_id) medias;
+    group by department_id) medias
+    on employees.department_id = medias.department_id
+order by salary desc;
 
 -- 12
 -- Número de empleados dados de alta por día
