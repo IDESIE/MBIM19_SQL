@@ -23,14 +23,14 @@ from employees);
 -- 3
 -- Nombre y apellido del jefe del departamento de Marketing
 select 
-first_name,
-last_name,
-manager_id
-
+    first_name,
+    last_name,
+    manager_id
 from employees
 where employee_id = (SELECT manager_id
 FROM departments
 WHERE department_name = 'Marketing');
+
 -- 4
 -- Nombre y apellido  de los empleados del departamento de Marketing
 select 
