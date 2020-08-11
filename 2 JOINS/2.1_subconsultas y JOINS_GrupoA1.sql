@@ -122,6 +122,7 @@ group by
 concat (substr (first_name,1,1), last_name)
 having
 count(*) >1;
+
 -- 11
 -- Listar nombre, apellido y un literal que indique el salario.
 -- 'BAJO' si el salario es menor a la mediabaja (media entre el salario mínimo y la media de salarios)
@@ -144,7 +145,6 @@ from employees,
         (avg(salary)+max(salary))/2 Mediaalta
     from employees) medias
 order by salary desc;
-
 
 -- 12
 -- Número de empleados dados de alta por día
