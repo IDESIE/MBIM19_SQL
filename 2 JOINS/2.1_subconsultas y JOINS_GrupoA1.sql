@@ -146,6 +146,26 @@ from employees,
     from employees) medias
 order by salary desc;
 
+/*Por departamento*/
+select 
+    first_name, 
+    last_name,
+    case
+        when salary > Mediaalta then
+            'ALTO'
+        when salary < Mediabaja then
+            'BAJO'
+        else 
+            'MEDIO'
+    end salario
+from employees,
+    (select 
+        department_id,
+        (avg(salary)+min(salary))/2 Mediabaja,
+        (avg(salary)+max(salary))/2 Mediaalta
+    from employees
+    group by department_id) medias;
+
 -- 12
 -- Número de empleados dados de alta por día
 -- entre dos fechas. Ej: entre 1997-10-10 y 1998-03-07
