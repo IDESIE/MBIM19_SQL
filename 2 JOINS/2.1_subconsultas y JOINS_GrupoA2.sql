@@ -99,9 +99,9 @@ having count(*) >1;
 -- 'MEDIO' si el salario está entre la mediabaja y medialata.
 SELECT first_name, last_name, 
     case
-        when salary < (avg(salary)+min(salary)) / 2 
+        when salary < ((avg(salary)+min(salary)) / 2 )
             then 'BAJO'
-        when salary > (avg(salary)+max(salary)) /2
+        when salary > ((avg(salary)+max(salary)) /2)
             then 'ALTO' 
         else 'MEDIO'
     end salary
@@ -115,7 +115,13 @@ from employees;
 -- en la parte visual de la aplicación se muestran desplegables
 -- para escoger los valores, pero luego eso se reemplaza en la consulta)
 -- Aquí usamos valores fijos de ejemplo.
-
+select count(employee_id)
+from employees e
+    JOIN departments d on e.department_id = d.department_id
+    JOIN locations l on d.location_id = l.location_id
+where l.city in('Seatle', 'Rome')
+group by hire_date
+having hire_date between '10/10/1997' and '07/03/1998';
 -- 13
 -- Un listado en el que se indique en líneas separadas
 -- una etiqueda que describa el valor y como valor:
