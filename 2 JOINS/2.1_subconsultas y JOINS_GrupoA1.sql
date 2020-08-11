@@ -54,13 +54,13 @@ Where salary = (select
 			From employees)or salary = (select
 			Min(salary)
 			From employees);
+
 -- 6
 -- Número de empleados y número de departamentos por ciudad (nombre)
 select
-
-count(*),
-count(distinct employees.department_id),
-city
+    count(*),
+    count(distinct employees.department_id),
+    city
 from employees
     full join departments on employees.department_id = 
     departments.department_id 
@@ -73,10 +73,9 @@ group by city;
 -- Número de empleados y número de departamentos de todas las ciudades (nombre)
 -- ordenado por número de empleados descendentemente
 select
-
-count(*),
-count(distinct employees.department_id),
-city
+    count(*),
+    count(distinct employees.department_id),
+    city
 from employees
     full join departments on employees.department_id = 
     departments.department_id 
@@ -85,6 +84,7 @@ from employees
     where city is not null
 group by city
 order by count(*) desc;
+
 -- 8
 -- Mostrar el número de empleado, nombre y apellido de los empleados
 -- que sean jefes tanto como de departamento como de otro empleado
