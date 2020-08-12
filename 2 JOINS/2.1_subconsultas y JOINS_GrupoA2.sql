@@ -157,26 +157,33 @@ group by d.department_id
 having count(e.employee_id) = 0
 union
 /*el número de jefes de empleado en Seattle*/
-select count(count(e.manager_id)) - count(d.manager_id)
-from employees e
-    JOIN departments d on e.department_id = d.department_id
-group by d.manager_id
+select 
+    count(count(e.manager_id))- count(count(d.manager_id))
+from
+    employees e
+    join departments  d on e.department_id = d.department_id
+    join locations  l on d.location_id = l.location_id
+where
+    l.city = 'Seattle'
+group by
+    e.manager_id
+;
 union
 /*el número de jefes de departamento en Seattle*/
 select count(manager_id)
-from departments 
+from departments d
+    join locations  l on d.location_id = l.location_id
+where
+    l.city = 'Seattle'
 ;
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
 select first_name, last_name, email, d.department_name
 from employees e join departments d on e.department_id = d.department_id
-group by department_id
-having department_id = (select department_id
-    from employees
-    group by department_id
-    having count(employee_id) = (select max(count(employee_id))
-        from employees));
+where e.department_id = (select max(count(employee_id))
+        from employees group by department_id)
+;
 -- 15
 -- Cuál es la fecha en la que más empleados
 -- se han dado de alta
