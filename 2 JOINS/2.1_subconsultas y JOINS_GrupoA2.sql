@@ -77,8 +77,8 @@ select first_name, last_name, salary
 from
     (select
     rownum orden, last_name, salary, first_name
-from employees
-order by salary desc)
+    from employees
+    order by salary desc)
 where rownum < 4;
 -- 10
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
@@ -167,7 +167,7 @@ where
     l.city = 'Seattle'
 group by
     e.manager_id
-;
+
 union
 /*el número de jefes de departamento en Seattle*/
 select count(manager_id)
