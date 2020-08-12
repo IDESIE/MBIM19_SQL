@@ -86,8 +86,8 @@ ordenados de forma descendente por año
 */
 select to_char(hire_date, 'yyyy'), round(avg(salary)) media
 from employees
-group by hire_date
-order by hire_date desc;
+group by  to_char(hire_date, 'yyyy')
+order by to_char(hire_date, 'yyyy') desc;
 /* 12
 Nombre del día en el que más empleados
 se han dado de alta

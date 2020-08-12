@@ -84,10 +84,6 @@ where rownum < 4;
 -- Imaginad que queremos crear nombres de usuario para direcciones de correo.
 -- Cuyo formato es la primera letra del nombre más el apellido.
 -- Queremos saber si del listado de nombres y apellidos alguien coinciden
-select  repeat(concat(substr(first_name, 1,1),last_name),>1)
-from employees
-group by concat(substr(first_name, 1,1),last_name);
-
 select concat(substr(first_name, 1,1),last_name), count(*)
 from employees
 group by concat(substr(first_name, 1,1),last_name)
@@ -99,13 +95,17 @@ having count(*) >1;
 -- 'MEDIO' si el salario está entre la mediabaja y medialata.
 SELECT first_name, last_name, 
     case
-        when salary < ((avg(salary)+min(salary)) / 2 )
+        when salary < mediabaja
             then 'BAJO'
-        when salary > ((avg(salary)+max(salary)) /2)
+        when salary > mediaalta
             then 'ALTO' 
         else 'MEDIO'
     end salary
-from employees;
+from employees,  
+    (select ((avg(salary)+min(salary))/2) mediabaja, 
+        ((avg(salary)+max(salary))/2) mediaalta
+    from employees) medias 
+    ;
 -- 12
 -- Número de empleados dados de alta por día
 -- entre dos fechas. Ej: entre 1997-10-10 y 1998-03-07
@@ -130,35 +130,42 @@ having hire_date between '10/10/1997' and '07/03/1998';
 -- el número de departamentos sin empleados en Seattle
 -- el número de jefes de empleado en Seattle
 -- el número de jefes de departamento en Seattle
-select count(employee_id) empleados, 
-    count(select count(employee_id)
-        from employees e 
-            JOIN departments d on e.department_id=d.department_id 
-            JOIN locations l on d.location_id = l.location_id
-        where l.city = 'Southlake' 
-        group by e.department_id
-        having count(employee_id) is not null) dptosConEmp, 
-    count(select count(employee_id)
-        from employees e 
-            JOIN departments d on e.department_id=d.department_id 
-            JOIN locations l on d.location_id = l.location_id
-        where l.city = 'Southlake' 
-        group by e.department_id
-        having count(employee_id) is null) dptosSinEmp,
-    count(select count(d.manager_id)
-        from employees e 
-            JOIN departments d on e.department_id=d.department_id 
-            JOIN locations l on d.location_id = l.location_id
-        where l.city = 'Southlake' and d.manager_id = e.manager_id) jefeEmplSeatle, 
-    count(select count(d.manager_id)
-        from employees e 
-            JOIN departments d on e.department_id=d.department_id 
-            JOIN locations l on d.location_id = l.location_id
-        where l.city = 'Southlake' and d.manager_id != e.manager_id) jefeDptoSeatle
+
+/*el número de empleados en Seattle*/
+select count(employee_id) contador
+from employees e
+    join departments d on e.department_id = d.department_id
+    join locations l on d.location_id = l.location_id
+where l.city = 'Seattle'
+union
+/*el número de departamentos con empleados en Seattle*/
+select count(count(d.department_id)) 
+from employees e
+    join departments d on e.department_id = d.department_id
+    join locations l on d.location_id = l.location_id
+    where l.city = 'Seattle' 
+group by d.department_id
+having count(e.employee_id) > 0
+union
+/*el número de departamentos sin empleados en Seattle*/
+select count(count(d.department_id)) 
+from employees e
+    join departments d on e.department_id = d.department_id
+    join locations l on d.location_id = l.location_id
+    where l.city = 'Seattle' 
+group by d.department_id
+having count(e.employee_id) = 0
+union
+/*el número de jefes de empleado en Seattle*/
+select (count(count(e.manager_id)) - count(d.manager_id))
 from employees e
     JOIN departments d on e.department_id = d.department_id
-    JOIN locations l on d.location_id = l.location_id
-where l.city = 'Southlake';
+group by d.manager_id
+union
+/*el número de jefes de departamento en Seattle*/
+select count(manager_id)
+from departments 
+;
 -- 14
 -- Nombre, apellido, email, department_name
 -- de los empleados del departamento con más empleados
