@@ -157,7 +157,7 @@ group by d.department_id
 having count(e.employee_id) = 0
 union
 /*el número de jefes de empleado en Seattle*/
-select (count(count(e.manager_id)) - count(d.manager_id))
+select count(count(e.manager_id)) - count(d.manager_id)
 from employees e
     JOIN departments d on e.department_id = d.department_id
 group by d.manager_id
