@@ -191,19 +191,19 @@ create table BBBCOSTES (
         
 Alter table BBBORDERS ADD(
     constraint fk_BBBORDERS_PROBLEM foreign key (problemtype_id)
-        reference BBBPROBLEMTYPE (id),
+        references BBBPROBLEMTYPE (id),
     constraint fk_BBBORDERS_COMPANY foreign key (company_Id)
-        reference BBBCOMPANY (id),
+        references BBBCOMPANY (id),
     constraint fk_BBBORDERS_CRITICALITY foreign key (criticality_Id)
-        reference BBBCRITICALLY (id),
+        references BBBCRITICALLY (id),
     constraint fk_BBBORDERS_STATUS foreign key (status_Id)
-        reference BBBORDERSTATUS (id),
+        references BBBORDERSTATUS (id),
     constraint fk_BBBORDERS_TICKET foreign key (ticket_Id)
-        reference BBBTICKETS (id)
+        references BBBTICKETS (id)
 );
 
 alter table BBBTICKETS ADD(
     component_Id number,
     constraint fk_BBBTICKETS_COMPONENT foreign key (component_Id)
-        reference AAACOMPONENTS (id)
+        references AAACOMPONENTS (id)
 );
